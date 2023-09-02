@@ -5,3 +5,53 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+# require 'faker'
+
+puts "Generating users...."
+
+User.create!(
+  email: "User0@email.com",
+  password: "123456",
+  # location: Address
+)
+puts "User created - #{User.email}"
+
+User.create!(
+  email: "User1@email.com",
+  password: "654321",
+  # location: Address
+)
+puts "User created - #{User.email}"
+
+puts "Generating venues...."
+
+Venue.create!(
+  # name: ,
+  # location:
+  # type:
+)
+puts "Venue created - #{Venue.name}"
+
+Venue.create!(
+  # name: ,
+  # location:
+  # type:
+)
+puts "Venue created - #{Venue.name}"
+
+Venue.create!(
+  # name: ,
+  # location:
+  # type:
+)
+puts "Venue created - #{Venue.name}"
+
+puts "Generating meetup....."
+
+Meetup.create!(
+  # name: ,
+  # date: ,
+  # location: ,
+  # type: ,
+  # passcode:
+)
