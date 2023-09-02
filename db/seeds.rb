@@ -19,7 +19,7 @@ puts "User created - #{User.email}"
 User.create!(
   email: "User1@email.com",
   password: "654321",
-  address: "3 bawden close, cantebury, CT2 7DW, UK"
+  address: "36 Howberry Road, Thornton Heath, CR7 8HY"
 )
 
 User.create!(
@@ -33,33 +33,27 @@ puts "User created - #{User.email}"
 
 puts "Generating venues...."
 
-Venue.create!(
-  name: "Central",
-  password: "654321",
-  address: "69a Stoke Newington High St, London N16 8EL, UK"
-)
-puts "Venue created - #{Venue.name}"
 
-Venue.create!(
-  # name: ,
-  # location:
-  # type:
-)
-puts "Venue created - #{Venue.name}"
+# Venue.create!(
+#   # name: ,
+#   # location:
+#   # type:
+# )
+# puts "Venue created - #{Venue.name}"
 
-Venue.create!(
-  # name: ,
-  # location:
-  # type:
-)
-puts "Venue created - #{Venue.name}"
+# Venue.create!(
+#   # name: ,
+#   # location:
+#   # type:
+# )
+# puts "Venue created - #{Venue.name}"
 
-puts "Generating meetup....."
+# puts "Generating meetup....."
 
 Meetup.create!(
-  # name: ,
-  # date: ,
-  # location: ,
-  # type: ,
-  # passcode:
+  name: "Dave_Tom_Raf_Work_Party",
+  date: 2000-01-01,
+  location: "Le Wagon Hq, Shoreditch Stables, North, 138 Kingsland Rd, London E2 8DY",
+  type: "Work",
+  passcode: "£123456£"
 )
