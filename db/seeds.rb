@@ -12,23 +12,31 @@ puts "Generating users...."
 User.create!(
   email: "User0@email.com",
   password: "123456",
-  # location: Address
+  address: "90 Roding Road E5 0DS, UK"
 )
 puts "User created - #{User.email}"
 
 User.create!(
   email: "User1@email.com",
   password: "654321",
-  # location: Address
+  address: "3 bawden close, cantebury, CT2 7DW, UK"
 )
+
+User.create!(
+  email: "User2@email.com",
+  password: "654321",
+  address: "69a Stoke Newington High St, London N16 8EL, UK"
+)
+
+
 puts "User created - #{User.email}"
 
 puts "Generating venues...."
 
 Venue.create!(
-  # name: ,
-  # location:
-  # type:
+  name: "Central",
+  password: "654321",
+  address: "69a Stoke Newington High St, London N16 8EL, UK"
 )
 puts "Venue created - #{Venue.name}"
 
