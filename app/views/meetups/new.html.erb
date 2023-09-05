@@ -1,2 +1,12 @@
 <h1>Meetups#new</h1>
 <p>Find me in app/views/meetups/new.html.erb</p>
+
+<div class="container">
+    <%= simple_form_for(@meetup) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :event_date %>
+        <%= f.input :purpose %>
+        <%= f.input :location %>
+        <%= f.submit %>
+    <% end %>
+</div>

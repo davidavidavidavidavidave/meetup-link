@@ -3,5 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :meetups, through: :user_meetups
+  has_many :meetups, class_name: "Meetup", foreign_key: "user_id"
+  has_many :attending_meetups, class_name: "UserMeetup", foreign_key: "user_id"
 end
