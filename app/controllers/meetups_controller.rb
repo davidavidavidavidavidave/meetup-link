@@ -31,12 +31,13 @@ class MeetupsController < ApplicationController
 
   def update
     # This method for admin to change - PATCH
-    # 1. Find the meetup
     @meetup = Meetup.find(params[:id])
-    # 2. take new user location (add to user location array?)
-
-    # 3. centre point lat/long recalculated with api call (updated)
-    # 4. location updated
+    @meetup.update(meetup_params)
+    if @meetup.save
+      redirect_to meetup_path # unsure if this will work (meetup_path(@meetup)?)
+    else
+      render :new
+    end
   end
 
   private
