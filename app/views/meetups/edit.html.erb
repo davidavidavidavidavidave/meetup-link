@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Edit your meetup</h1>
+    <%= simple_form_for(@meetup) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :event_date %>
+        <%= f.input :purpose %>
+        <%= f.input :location %>
+        <%= f.submit %>
+    <% end %>
+</div>
