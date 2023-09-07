@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :meetups
-  
+  resources :meetups do
+    resources :user_meetups
+  end
 end
