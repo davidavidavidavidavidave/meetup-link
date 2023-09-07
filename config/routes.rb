@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user_meetups/create'
+  get 'user_meetups/update'
   get 'meetups/show'
   get 'meetups/new'
   get 'meetups/index'
