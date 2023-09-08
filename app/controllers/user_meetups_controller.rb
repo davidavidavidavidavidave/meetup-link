@@ -1,7 +1,8 @@
 class UserMeetupsController < ApplicationController
+before_action :set_meetup
 
   def new
-    @user_meetup = UserMeetup.new
+  @user_meetup = UserMeetup.new
   end
 
   def create
@@ -24,6 +25,12 @@ class UserMeetupsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def set_meetup
+    @meetup = Meetup.find(params[:meetup_id])
   end
 
   def user_meetup_params

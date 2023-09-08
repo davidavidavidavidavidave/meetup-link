@@ -1,5 +1,7 @@
 class Meetup < ApplicationRecord
   belongs_to :user, class_name: "User"
+  has_many :user_meetups
+
   # belongs_to :venue
   # has_many :users, through: :user_meetups
 end

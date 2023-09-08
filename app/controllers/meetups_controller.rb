@@ -3,6 +3,7 @@ class MeetupsController < ApplicationController
 
   def show
     @meetup = Meetup.find(params[:id])
+    @user_meetups = @meetup.user_meetups
   end
 
   def new

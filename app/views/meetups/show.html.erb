@@ -1,2 +1,20 @@
 <h1>Meetups#show</h1>
-<p>Find me in app/views/meetups/show.html.erb</p>
+<h2>This is the meetup</h2>
+<ul>
+  <li>ID: <%= @meetup.id %></li>
+  <li>User ID: <%= @meetup.user_id %></li>
+  <li>Name: <%= @meetup.name %></li>
+  <li>Event Date: <%= @meetup.event_date %></li>
+  <li>Purpose: <%= @meetup.purpose %></li>
+  <li>Location: <%= @meetup.location %></li>
+</ul>
+
+<h2>User Meetups:</h2>
+<ul>
+  <% @meetup.user_meetups.each do |user_meetup| %>
+    <li>Meetup ID: <%= user_meetup.meetup_id %> </li>
+    <li>User ID: <%=user_meetup.user_id %> </li>
+    <li>USER LOCATION: <%= user_meetup.user_location %> </li>
+
+  <% end %>
+</ul>
