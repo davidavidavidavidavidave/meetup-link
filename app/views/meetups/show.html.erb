@@ -1,34 +1,30 @@
-<h1>This is the meetup</h1>
-<ul>
-  <li>Name: <%= @meetup.name %></li>
-  <li>Event Date: <%= @meetup.event_date %></li>
-  <li>Purpose: <%= @meetup.purpose %></li>
-  <li>Location: <%= @meetup.location %></li>
-  <% @meetup.id %><% @meetup.user_id %></li>
-</ul>
+<div class="container">
+  <h1>This is the meetup</h1>
 
-<!-- Add an "Edit" button for the current user who created the meetup -->
-<% if current_user == @meetup.user %>
-  <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary" %>
-<% end %>
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<h2>Who's going?</h2>
-<p>User_meetups</p>
-<ul>
-  <% @meetup.users.each do |user| %>
-    <li><%= user.username %></li>
-  <% end %>
-</ul>
+  <ul>
+    <li>Name: <%= @meetup.name %></li>
+    <li>Event Date: <%= @meetup.event_date %></li>
+    <li>Purpose: <%= @meetup.purpose %></li>
+    <li>Location: <%= @meetup.location %></li>
+    <% @meetup.id %><% @meetup.user_id %></li>
+  </ul>
 
-<% unless current_user_already_joined_meetup? %>
+  <h2>Who's going?</h2>
+  <p>User_meetups</p>
+  <ul>
+    <% @meetup.users.each do |user| %>
+      <li><%= user.username %></li>
+    <% end %>
+  </ul>
+
   <%= simple_form_for([@meetup, @user_meetup]) do |f| %>
     <p>Fancy joining this meetup?</p>
     <%= f.input :user_location, label: false, placeholder: 'Please add your location' %>
     <%= f.submit 'Join this Meetup' %>
   <% end %>
-<% end %>
-
-<% if current_user_already_joined_meetup? %>
-  <% user_meetup = current_user.user_meetups.find_by(meetup: @meetup) %>
-  <%= button_to "Leave this Meetup", meetup_user_meetup_path(@meetup, user_meetup), method: :delete, class: "btn btn-danger" %>
-<% end %>
+</div>
