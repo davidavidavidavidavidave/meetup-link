@@ -7,29 +7,62 @@
 # #   Character.create(name: "Luke", movie: movies.first)
 # # require 'faker'
 
-# puts "Generating users...."
 
-# User.create!(
-#   email: "User0@email.com",
-#   password: "123456",
-#   address: "90 Roding Road E5 0DS, UK"
-# )
-# puts "User created"
+User.destroy_all
+puts "Users deleted"
+Meetup.destroy_all
+puts "Meetups deleted"
+puts "Generating users...."
 
-# User.create!(
-#   email: "User1@email.com",
-#   password: "654321",
-#   address: "36 Howberry Road, Thornton Heath, CR7 8HY"
-# )
+User.create!(
+  email: "User1@email.com",
+  password: "123456",
+  address: "36 Howberry Road, Thornton Heath, CR7 8HY"
+)
 
-# User.create!(
-#   email: "User2@email.com",
-#   password: "654321",
-#   address: "69a Stoke Newington High St, London N16 8EL, UK"
-# )
+User.create!(
+  email: "User2@email.com",
+  password: "123456",
+  address: "77 Eaton Rise, London W5 2HE"
+)
+
+User.create!(
+  email: "User3@email.com",
+  password: "123456",
+  address: "12 Oak Grove, London NW2 3LP"
+)
+puts "Users created"
+
+User.create!(
+  email: "User4@email.com",
+  password: "123456",
+  address: "90 Roding Road E5 0DS, UK"
+)
+puts "User created"
+
+puts "Generating meetup....."
+
+Meetup.create!(
+  id: 1,
+  user_id: 1,
+  name: "Dave_Tom_Raf_Work_Party",
+  location: "We Work office space, 21 Soho Square, London W1D 3QP",
+  event_date: Date.new(2023, 9, 30),
+  passcode: "£123456£"
+)
+
+puts "Meetup created"
 
 
-# puts "User created"
+# puts "Generating user_meetup....."
+
+UserMeetup.create!(
+  user_id: 1,
+  meetup_id: 1,
+)
+
+
+
 
 # puts "Generating venues...."
 
@@ -47,11 +80,3 @@
 # #   # type:
 # # )
 # # puts "Venue created - #{Venue.name}"
-
-# # puts "Generating meetup....."
-
-# Meetup.create!(
-#   name: "Dave_Tom_Raf_Work_Party",
-#   location: "Le Wagon Hq, Shoreditch Stables, North, 138 Kingsland Rd, London E2 8DY",
-#   passcode: "£123456£"
-# )
