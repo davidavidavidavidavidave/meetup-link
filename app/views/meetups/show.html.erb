@@ -15,8 +15,15 @@
   <% end %>
 </ul>
 
-<%= simple_form_for([@meetup, @user_meetup]) do |f| %>
-  <p>Fancy joining this meetup?</p>
-  <%= f.input :user_location, label: false, placeholder: 'Please add your location' %>
-  <%= f.submit 'Join this Meetup' %>
+<% unless current_user_already_joined_meetup? %>
+  <%= simple_form_for([@meetup, @user_meetup]) do |f| %>
+    <p>Fancy joining this meetup?</p>
+    <%= f.input :user_location, label: false, placeholder: 'Please add your location' %>
+    <%= f.submit 'Join this Meetup' %>
+  <% end %>
+<% end %>
+
+<% if current_user_already_joined_meetup? %>
+  <% user_meetup = current_user.user_meetups.find_by(meetup: @meetup) %>
+  <%= button_to "Leave this Meetup", meetup_user_meetup_path(@meetup, user_meetup), method: :delete, class: "btn btn-danger" %>
 <% end %>
