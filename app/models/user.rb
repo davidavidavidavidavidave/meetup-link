@@ -6,6 +6,4 @@ class User < ApplicationRecord
   has_many :meetups, class_name: "Meetup", foreign_key: "user_id"
   has_many :attending_meetups, class_name: "UserMeetup", foreign_key: "user_id"
   has_many :user_meetups
-
-
 end
