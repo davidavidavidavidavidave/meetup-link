@@ -3,7 +3,7 @@ class MeetupsController < ApplicationController
 
   def show
     @meetup = Meetup.find(params[:id])
-    @user_meetups = @meetup.user_meetups
+    @user_meetup = UserMeetup.new
   end
 
   def new
@@ -11,7 +11,7 @@ class MeetupsController < ApplicationController
   end
 
   def index
-    @meetups = current_user.meetups
+      @meetups = current_user.user_meetups.map(&:meetup)
   end
 
   def create

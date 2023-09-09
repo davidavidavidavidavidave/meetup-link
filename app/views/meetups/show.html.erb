@@ -1,20 +1,34 @@
-<h1>Meetups#show</h1>
-<h2>This is the meetup</h2>
+<h1>This is the meetup</h1>
 <ul>
-  <li>ID: <%= @meetup.id %></li>
-  <li>User ID: <%= @meetup.user_id %></li>
   <li>Name: <%= @meetup.name %></li>
   <li>Event Date: <%= @meetup.event_date %></li>
   <li>Purpose: <%= @meetup.purpose %></li>
   <li>Location: <%= @meetup.location %></li>
+  <% @meetup.id %><% @meetup.user_id %></li>
 </ul>
 
-<h2>User Meetups:</h2>
-<ul>
-  <% @meetup.user_meetups.each do |user_meetup| %>
-    <li>Meetup ID: <%= user_meetup.meetup_id %> </li>
-    <li>User ID: <%=user_meetup.user_id %> </li>
-    <li>USER LOCATION: <%= user_meetup.user_location %> </li>
+<!-- Add an "Edit" button for the current user who created the meetup -->
+<% if current_user == @meetup.user %>
+  <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary" %>
+<% end %>
 
+<h2>Who's going?</h2>
+<p>User_meetups</p>
+<ul>
+  <% @meetup.users.each do |user| %>
+    <li><%= user.username %></li>
   <% end %>
 </ul>
+
+<% unless current_user_already_joined_meetup? %>
+  <%= simple_form_for([@meetup, @user_meetup]) do |f| %>
+    <p>Fancy joining this meetup?</p>
+    <%= f.input :user_location, label: false, placeholder: 'Please add your location' %>
+    <%= f.submit 'Join this Meetup' %>
+  <% end %>
+<% end %>
+
+<% if current_user_already_joined_meetup? %>
+  <% user_meetup = current_user.user_meetups.find_by(meetup: @meetup) %>
+  <%= button_to "Leave this Meetup", meetup_user_meetup_path(@meetup, user_meetup), method: :delete, class: "btn btn-danger" %>
+<% end %>

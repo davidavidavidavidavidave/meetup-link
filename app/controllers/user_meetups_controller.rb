@@ -1,31 +1,44 @@
 class UserMeetupsController < ApplicationController
-before_action :set_meetup
+  before_action :set_meetup
 
   def new
-  @user_meetup = UserMeetup.new
+    @user_meetup = UserMeetup.new
   end
 
   def create
-    # Find meetup using params id, verify existence
-    # If exists code below, otherwise error message
-
-    # 1. User accesses particular meetup via id
-    @user_meetup = UserMeetup.new(user_meetup_params)
-    # 2. Assign current user to meetup
-    # - meetup_id = id
-    @user_meetup.meetup_id = params[:id]
-    # - user_id = current user
-    @user_meetup.user_id = current_user
-    # 3. update location?
-    if @user_meetup.save
-      redirect_to root_path
+    if current_user_already_joined_meetup?
+      flash[:notice] = "You have already joined this meetup."
     else
-      render :new
+      @user_meetup = UserMeetup.new(user_meetup_params)
+      @user_meetup.meetup = @meetup
+      @user_meetup.user = current_user
+      # 3. update location?
+      if @user_meetup.save
+        flash[:notice] = "You have successfully joined this meetup!"
+      else
+        flash[:notice] = "Error. Try again."
+      end
     end
+    redirect_to meetup_path(@meetup)
+
   end
 
   def update
   end
+
+  def destroy
+    user_meetup = current_user.user_meetups.find_by(meetup: @meetup)
+
+    if user_meetup
+      user_meetup.destroy
+      flash[:notice] = "You have left the meetup."
+    else
+      flash[:alert] = "You are not a member of this meetup."
+    end
+
+    redirect_to @meetup
+  end
+
 
   private
 
@@ -34,18 +47,10 @@ before_action :set_meetup
   end
 
   def user_meetup_params
-    params.require(:user_meetup).permit(:location)
+    params.require(:user_meetup).permit(:user_location)
+  end
+
+  def current_user_already_joined_meetup?
+    @meetup.users.include?(current_user)
   end
 end
-
-# def create
-#   @meetup = Meetup.new(meetup_params)
-#   @meetup.passcode = passcode
-#   @meetup.user = current_user
-#   #  add location for initial user at signup
-#   if @meetup.save
-#     redirect_to root_path
-#   else
-#     render :new
-#   end
-# end
