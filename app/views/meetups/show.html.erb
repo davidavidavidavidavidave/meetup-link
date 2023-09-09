@@ -1,3 +1,4 @@
+<div class="container">
 <h1>This is the meetup</h1>
 <ul>
   <li>Name: <%= @meetup.name %></li>
@@ -16,10 +17,18 @@
 <p>User_meetups</p>
 <ul>
   <% @meetup.users.each do |user| %>
-    <li><%= user.username %></li>
+  <li>
+    <% image_filename = "#{user.username}.png" %>
+      <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
+        <%= image_tag image_filename, alt: "Avatar", class: "avatar-large" %>
+      <% else %>
+        <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png", alt: "Default Avatar", class: "avatar-large" %>
+      <% end %><%= user.username %>
+    <br> <!-- Add a line break for spacing -->
+</li>
   <% end %>
 </ul>
-
+<div>
 <% unless current_user_already_joined_meetup? %>
   <%= simple_form_for([@meetup, @user_meetup]) do |f| %>
     <p>Fancy joining this meetup?</p>
@@ -32,3 +41,5 @@
   <% user_meetup = current_user.user_meetups.find_by(meetup: @meetup) %>
   <%= button_to "Leave this Meetup", meetup_user_meetup_path(@meetup, user_meetup), method: :delete, class: "btn btn-danger" %>
 <% end %>
+</div>
+</div>

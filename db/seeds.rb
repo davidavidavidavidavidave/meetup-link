@@ -7,7 +7,6 @@
 # #   Character.create(name: "Luke", movie: movies.first)
 # # require 'faker'
 
-
 User.destroy_all
 puts "Users deleted"
 Meetup.destroy_all
