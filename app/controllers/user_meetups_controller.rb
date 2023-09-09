@@ -26,6 +26,20 @@ class UserMeetupsController < ApplicationController
   def update
   end
 
+  def destroy
+    user_meetup = current_user.user_meetups.find_by(meetup: @meetup)
+
+    if user_meetup
+      user_meetup.destroy
+      flash[:notice] = "You have left the meetup."
+    else
+      flash[:alert] = "You are not a member of this meetup."
+    end
+
+    redirect_to @meetup
+  end
+
+
   private
 
   def set_meetup
