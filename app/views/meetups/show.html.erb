@@ -7,11 +7,11 @@
   <li>Location: <%= @meetup.location %></li>
   <% @meetup.id %><% @meetup.user_id %></li>
 </ul>
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<!-- Add an "Edit" button for the current user who created the meetup -->
-<% if current_user == @meetup.user %>
-  <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary" %>
-<% end %>
 
 <h2>Who's going?</h2>
 <p>User_meetups</p>
