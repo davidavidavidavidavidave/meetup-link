@@ -23,8 +23,8 @@ html, body {
 }
 
 :root {
-  --color-bg1: rgb(108, 0, 162);
-  --color-bg2: rgb(0, 17, 82);
+  --color-bg1: rgb(0, 17, 82);
+  --color-bg2: rgb(53, 61, 74);
   --color1: 243,227,201;
   --color2: 41,74,87;
   --color3: 85,71,81;
@@ -184,4 +184,71 @@ html, body {
 
     opacity: 0.7;
   }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+a {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  width: 350px;
+  position: relative;
+
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  border-radius: 4px;
+
+  transition: background-image 150ms ease;
+
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    border-radius: 4px;
+    left: 0;
+    z-index: -1;
+    transition: opacity 200ms ease;
+  }
+
+  &:before {
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    opacity: 0;
+  }
+
+  &:active {
+    &:before {
+      opacity: 1;
+    }
+    &:after {
+      opacity: 0;
+    }
+  }
+}
+
+h2 {
+  font-size: 55px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 4px;
+  margin: 0;
+  margin-bottom: 30px;
+
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media only screen and (max-width: 700px) {
+  h2 {font-size: 20px;}
 }
