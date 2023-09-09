@@ -15,18 +15,21 @@ puts "Meetups deleted"
 puts "Generating users...."
 
 User.create!(
+  username: "Tom",
   email: "User1@email.com",
   password: "123456",
   address: "36 Howberry Road, Thornton Heath, CR7 8HY"
 )
 
 User.create!(
+  username: "Cat",
   email: "User2@email.com",
   password: "123456",
   address: "77 Eaton Rise, London W5 2HE"
 )
 
 User.create!(
+  username: "Raf",
   email: "User3@email.com",
   password: "123456",
   address: "12 Oak Grove, London NW2 3LP"
@@ -34,6 +37,7 @@ User.create!(
 puts "Users created"
 
 User.create!(
+  username: "Dave",
   email: "User4@email.com",
   password: "123456",
   address: "90 Roding Road E5 0DS, UK"
@@ -48,21 +52,34 @@ Meetup.create!(
   name: "Dave_Tom_Raf_Work_Party",
   location: "We Work office space, 21 Soho Square, London W1D 3QP",
   event_date: Date.new(2023, 9, 30),
+  purpose: "Work!",
   passcode: "£123456£"
 )
 
 puts "Meetup created"
 
 
-# puts "Generating user_meetup....."
+puts "Generating user_meetup....."
 
 UserMeetup.create!(
   user_id: 1,
   meetup_id: 1,
 )
 
+UserMeetup.create!(
+  user_id: 2,
+  meetup_id: 1,
+)
 
+UserMeetup.create!(
+  user_id: 3,
+  meetup_id: 1,
+)
 
+UserMeetup.create!(
+  user_id: 4,
+  meetup_id: 1,
+)
 
 # puts "Generating venues...."
 
