@@ -7,6 +7,11 @@
   <% @meetup.id %><% @meetup.user_id %></li>
 </ul>
 
+<!-- Add an "Edit" button for the current user who created the meetup -->
+<% if current_user == @meetup.user %>
+  <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary" %>
+<% end %>
+
 <h2>Who's going?</h2>
 <p>User_meetups</p>
 <ul>
