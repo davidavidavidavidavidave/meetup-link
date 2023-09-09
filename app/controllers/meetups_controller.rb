@@ -11,7 +11,7 @@ class MeetupsController < ApplicationController
   end
 
   def index
-    @meetups = current_user.meetups
+      @meetups = current_user.user_meetups.map(&:meetup)
   end
 
   def create
