@@ -4,6 +4,12 @@ class MeetupsController < ApplicationController
   def show
     @meetup = Meetup.find(params[:id])
     @user_meetup = UserMeetup.new
+    @users = @meetup.users
+    # @markers = @users.geocoded.map do |user|
+    #   {
+    #     lat: user.latitude,
+    #     lng: user.longitude
+    #   }
   end
 
   def new
@@ -11,7 +17,7 @@ class MeetupsController < ApplicationController
   end
 
   def index
-      @meetups = current_user.user_meetups.map(&:meetup)
+    @meetups = current_user.meetups
   end
 
   def create
