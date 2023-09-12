@@ -42,3 +42,23 @@
     <%# <%= button_to "Leave this Meetup", meetup_user_meetup_path(@meetup, user_meetup), method: :delete, class: "btn btn-danger" %> %>
   <%# <% end %> %>
 </div>
+
+<% if @meetup.chatroom %>
+  <h2>Chatroom Information:</h2>
+  <p>Name: <%= @meetup.chatroom.name %></p>
+
+  <h2>Messages:</h2>
+  <ul>
+    <% @meetup.chatroom.messages.each do |message| %>
+      <li><%= message.content %> (Sent by: <%= message.user.username %>)</li>
+    <% end %>
+  </ul>
+
+  <!-- Form to create a new message -->
+  <%= form_for([@meetup, @meetup.chatroom, @meetup.chatroom.messages.new]) do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit "Send" %>
+  <% end %>
+<% else %>
+  <p>No chatroom available for this meetup.</p>
+<% end %>

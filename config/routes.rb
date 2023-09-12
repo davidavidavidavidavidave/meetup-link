@@ -15,5 +15,9 @@ Rails.application.routes.draw do
 
   resources :meetups do
     resources :user_meetups
+    resource :chatroom, only: [:show, :create, :destroy] do
+      resources :messages, only: :create
+    end
   end
+
 end
