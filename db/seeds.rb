@@ -43,6 +43,31 @@ User.create!(
 )
 puts "User created"
 
+puts "Sorting geocoder coordinates...."
+
+addresses = ["36 Howberry Road, Thornton Heath, CR7 8HY",
+             "77 Eaton Rise, London, W5 2HE",
+             "12 Oak Grove, London, NW2 3LP",
+             "90 Roding Road, E5 0DS, UK"]
+
+puts "These are the addresses: "
+p addresses
+
+coordinates = addresses.map do |address|
+  result = Geocoder.coordinates(address)
+  [result[0], result[1]]
+end
+
+puts "These are the coordinates: "
+p coordinates
+
+centre = Geocoder::Calculations.geographic_center(coordinates)
+
+puts "This is the centre point: "
+p centre
+
+puts "Geocoding completed"
+
 puts "Generating meetup....."
 
 Meetup.create!(
@@ -52,7 +77,8 @@ Meetup.create!(
   location: "We Work office space, 21 Soho Square, London W1D 3QP",
   event_date: Date.new(2023, 9, 30),
   purpose: "Work!",
-  passcode: "£123456£"
+  passcode: "£123456£",
+  centre_point_test: centre
 )
 
 puts "Meetup created"
@@ -62,22 +88,22 @@ puts "Generating user_meetup....."
 
 UserMeetup.create!(
   user_id: 1,
-  meetup_id: 1,
+  meetup_id: 1
 )
 
 UserMeetup.create!(
   user_id: 2,
-  meetup_id: 1,
+  meetup_id: 1
 )
 
 UserMeetup.create!(
   user_id: 3,
-  meetup_id: 1,
+  meetup_id: 1
 )
 
 UserMeetup.create!(
   user_id: 4,
-  meetup_id: 1,
+  meetup_id: 1
 )
 
 # puts "Generating venues...."
