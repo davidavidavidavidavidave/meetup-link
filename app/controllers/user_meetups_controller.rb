@@ -13,6 +13,7 @@ class UserMeetupsController < ApplicationController
       @user_meetup.meetup = @meetup
       @user_meetup.user = current_user
       # 3. update location?
+      # @user_meetup.user_location = ll_location
       if @user_meetup.save
         flash[:notice] = "You have successfully joined this meetup!"
       else
@@ -20,7 +21,6 @@ class UserMeetupsController < ApplicationController
       end
     end
     redirect_to meetup_path(@meetup)
-
   end
 
   def update
@@ -39,4 +39,9 @@ class UserMeetupsController < ApplicationController
   def current_user_already_joined_meetup?
     @meetup.users.include?(current_user)
   end
+
+  # Method to set user_location to one string for api usage
+  # def ll_location
+  #   "#{current_user.latitude},#{current_user.longitude}"
+  # end
 end

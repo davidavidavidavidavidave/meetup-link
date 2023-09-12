@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :attending_meetups, class_name: "UserMeetup", foreign_key: "user_id"
   has_many :user_meetups
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

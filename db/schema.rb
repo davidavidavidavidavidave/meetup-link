@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_09_155204) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_082934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_09_155204) do
     t.float "centre_point_latitude"
     t.float "centre_point_longitude"
     t.string "purpose"
+    t.float "centre_point"
+    t.string "centre_point_test"
     t.index ["user_id"], name: "index_meetups_on_user_id"
   end
 
