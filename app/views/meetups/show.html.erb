@@ -25,7 +25,16 @@
           <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png", alt: "Default Avatar", class: "avatar-large" %>
         <% end %><%= user.username %>
       <br> <!-- Add a line break for spacing -->
-  </li>
+    </li>
+    <% end %>
+  </ul>
+
+<p>Suggested Places</p>
+  <ul>
+    <% @global_restaurants.each do |restaurant| %>
+      <li>
+        <%= restaurant %>
+      </li>
     <% end %>
   </ul>
   <div>
