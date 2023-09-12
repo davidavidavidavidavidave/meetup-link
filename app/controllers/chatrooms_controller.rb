@@ -8,4 +8,5 @@ class ChatroomsController < ApplicationController
     @messages = @chatroom.messages
   end
 
+  
 end

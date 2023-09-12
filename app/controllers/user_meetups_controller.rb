@@ -13,7 +13,6 @@ class UserMeetupsController < ApplicationController
       @user_meetup.meetup = @meetup
       @user_meetup.user = current_user
       # 3. update location?
-      # @user_meetup.user_location = ll_location
       if @user_meetup.save
         flash[:notice] = "You have successfully joined this meetup!"
       else
@@ -21,6 +20,19 @@ class UserMeetupsController < ApplicationController
       end
     end
     redirect_to meetup_path(@meetup)
+  end
+
+  def destroy
+    user_meetup = current_user.user_meetups.find_by(meetup: @meetup)
+
+    if user_meetup
+      user_meetup.destroy
+      flash[:notice] = "You have left the meetup."
+    else
+      flash[:alert] = "You are not a member of this meetup."
+    end
+
+    redirect_to @meetup
   end
 
   def update
