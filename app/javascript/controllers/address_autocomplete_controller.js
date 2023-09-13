@@ -14,12 +14,17 @@ export default class extends Controller {
     })
     this.geocoder.addTo(this.element)
     this.geocoder.on("result", event => this.#setInputValue(event))
-    // this.geocoder.on("clear", () => this.#clearInputValue())
+    this.geocoder.on("clear", () => this.#clearInputValue())
   }
 
     #setInputValue(event) {
       console.log("hello")
       this.user_locationTarget.value = event.result["place_name"]
+      }
+
+      #clearInputValue() {
+        this.user_locationTarget.value = ""
+
       }
 }
 
