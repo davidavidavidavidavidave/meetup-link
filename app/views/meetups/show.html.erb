@@ -43,7 +43,11 @@
     <% end %>
   <% end %>
 </div>
-
+<div class="actions">
+  <% if @meetup.users.include?(current_user) %>
+    <%= link_to "Chat", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-success" %>
+  <% end %>
+</div>
 <% if @meetup.chatroom %>
   <h2>Chatroom Information:</h2>
   <p>Name: <%= @meetup.chatroom.name %></p>

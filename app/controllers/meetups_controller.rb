@@ -21,6 +21,7 @@ class MeetupsController < ApplicationController
 
   def index
     @meetups = current_user.user_meetups.map(&:meetup)
+    # @meetups = current_user.meetups
   end
 
   def create
@@ -34,6 +35,15 @@ class MeetupsController < ApplicationController
       render :new
     end
   end
+
+  def create_chatroom
+    @meetup = Meetup.find(params[:id])
+    # Create a chatroom with the same ID as the meetup
+    @chatroom = Chatroom.find_or_create_by(meetup: @meetup)
+    # Redirect to the chatroom's show page
+    redirect_to meetup_chatroom_path(@meetup, @chatroom)
+  end
+
 
   def edit
     @meetup = Meetup.find(params[:id])
