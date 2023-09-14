@@ -75,9 +75,9 @@ Meetup.create!(
   id: 1,
   user_id: 1,
   name: "Dave_Tom_Raf_Work_Party",
-  location: "We Work office space, 21 Soho Square, London W1D 3QP",
+  location: "TBC",
   event_date: Date.new(2023, 9, 30),
-  purpose: "Work!",
+  purpose: "Munch!",
   passcode: "£123456£",
   centre_point_test: centre
 )
