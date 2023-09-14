@@ -48,7 +48,8 @@ puts "Sorting geocoder coordinates...."
 addresses = ["36 Howberry Road, Thornton Heath, CR7 8HY",
              "77 Eaton Rise, London, W5 2HE",
              "12 Oak Grove, London, NW2 3LP",
-             "90 Roding Road, E5 0DS, UK"]
+             "90 Roding Road, E5 0DS, UK",
+             "88 Moncrieff Street, London, SE15 5HL"]
 
 puts "These are the addresses: "
 p addresses
