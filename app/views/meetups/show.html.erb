@@ -17,7 +17,6 @@
   </div>
 
   <h2>Who's going?</h2>
-  <p>User_meetups</p>
   <ul>
     <% @meetup.users.each do |user| %>
     <li>
@@ -51,6 +50,7 @@
   <% else %>
     <%= simple_form_for([@meetup, @user_meetup]) do |f| %>
       <p>Fancy joining this meetup?</p>
+      <p>Enter your starting address:</p>
       <%= f.input :user_location, label: false, placeholder: 'Please add your location',
       input_html: {data: {address_autocomplete_target: "user_location"}, class: "d-none"},
       wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
