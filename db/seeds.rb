@@ -107,6 +107,9 @@ UserMeetup.create!(
   meetup_id: 1
 )
 
+# Chatroom.create!(
+#   name: "Dave_Tom_Raf_Work_Party"
+# )
 # puts "Generating venues...."
 
 

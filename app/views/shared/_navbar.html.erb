@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://external-preview.redd.it/0qkHh0jgDCIPYqdAC8c3T2lq8aw7gRr6ktm2f6h2Nw8.png?width=1080&crop=smart&auto=webp&s=22a5f33c21e4368c7b624c919da5837d34442802" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,13 +15,14 @@
             <%= link_to "Home", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "#{current_user.username}", "#", class: "nav-link" %>
           </li>
         <li class="nav-item dropdown">
   <% image_filename = "#{current_user.username}.png" %>
   <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
     <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <%= image_tag image_filename, class: "avatar", alt: "dropdown menu" %>
+      <%= "#{current_user.username}" %>
     </a>
   <% else %>
     <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
