@@ -32,14 +32,18 @@
     <% end %>
   </ul>
 
-<p>Suggested Places</p>
-  <ul>
-    <% @global_restaurants.each do |restaurant| %>
-      <li>
-        <%= restaurant %>
-      </li>
-    <% end %>
-  </ul>
+  <%# For demo only, complete me! %>
+  <% if @meetup.users.include?(current_user) %>
+  <p>Suggested Places:</p>
+    <ul>
+      <% @global_restaurants.each do |restaurant| %>
+        <li>
+          <%= restaurant %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
 <div>
   <% if @meetup.users.include?(current_user) %>
     <% user_meetup = current_user.user_meetups.find_by(meetup: @meetup) %>
