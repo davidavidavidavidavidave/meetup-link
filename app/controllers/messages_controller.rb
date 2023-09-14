@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     # @message = @chatroom.messages.new(message_params)
     @message.user = current_user # Assuming you have user authentication
 
-    if @message.save
+    @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
         render_to_string(
@@ -16,13 +16,11 @@ class MessagesController < ApplicationController
           locals: {message: @message}
         )
       )
-      redirect_to meetup_chatroom_path(@meetup, @chatroom), notice: 'Message sent successfully.'
-    else
-      flash.now[:alert] = "Error: Message could not be sent."
-      render 'chatrooms/show'
-    end
+    head :ok
   end
 
+  private
+  
   def message_params
     params.require(:message).permit(:content)
   end
