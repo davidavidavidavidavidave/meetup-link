@@ -8,5 +8,6 @@ class User < ApplicationRecord
   has_many :user_meetups
 
   geocoded_by :address
+  validates :address, presence: true
   after_validation :geocode, if: :will_save_change_to_address?
 end
