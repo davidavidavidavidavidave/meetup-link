@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap" rel="stylesheet">
 
-</head>
-<body>
-<h1>Meetuplink</h1>
+  </head>
+  <body>
+  <h1>Meetuplink</h1>
 
   <div class="gradient-bg">
     <svg xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,9 @@
 
         <div class="wrapper">
           <h2>Meetuplink</h2>
-          <a href="#">Create Meetup</a>
+          <%= link_to "Create Meetup", new_meetup_path %>
+
+
           <%# hard coded meetup link, change me after demo! %>
           <a href="meetups/1">Join Meetup</a>
         </div>
