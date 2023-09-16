@@ -8,10 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap" rel="stylesheet">
 
-  </head>
-  <body>
-  <h1>Meetuplink</h1>
-
+</head>
+<body>
   <div class="gradient-bg">
     <svg xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -24,14 +22,13 @@
       </svg>
 
 
+
         <div class="wrapper">
           <h2>Meetuplink</h2>
-          <%= link_to "Create Meetup", new_meetup_path %>
-
-
-          <%# hard coded meetup link, change me after demo! %>
-          <a href="meetups/1">Join Meetup</a>
-        </div>
+		  <%= link_to "Create Meetup", new_meetup_path %>
+          <%= button_to "Create a Meetup", new_meetup_path(@meetup), :class => "button" %>
+          <%= button_to "Join a Meetup", new_meetup_path(@meetup), :class => "button" %>
+      </div>
 
       <div class="gradients-container">
       <div class="g1"></div>
@@ -47,7 +44,3 @@
 
 </body>
 </html>
-<%# <h1>Pages#home#test</h1>
-<div class="container">
-    <%# <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png"%>
-<%# </div> %>
