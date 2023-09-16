@@ -9,7 +9,7 @@ class UserMeetupsController < ApplicationController
     if current_user_already_joined_meetup?
       flash[:notice] = "You have already joined this meetup."
     else
-      @user_meetup = UserMeetup.new(user_meetup_params)
+      @user_meetup = UserMeetup.new
       @user_meetup.meetup = @meetup
       @user_meetup.user = current_user
       # 3. update location?
@@ -45,7 +45,7 @@ class UserMeetupsController < ApplicationController
   end
 
   def user_meetup_params
-    params.require(:user_meetup).permit(:user_location)
+    params.require(:user_meetup).permit(:meetup_id)
   end
 
   def current_user_already_joined_meetup?

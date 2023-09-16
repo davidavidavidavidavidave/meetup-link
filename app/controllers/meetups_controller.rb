@@ -10,7 +10,6 @@ class MeetupsController < ApplicationController
                            "Aubaine, Cuisine: French, European, Address: 260-262 Brompton Rd, Knightsbridge, London SW3 2AS, Distance: Approximately 0.4 miles away"]
 
     @meetup = Meetup.find(params[:id])
-    @user_meetup = UserMeetup.new
     @users = @meetup.users
     @coordinates = user_coordinates
     @meetup.centre_point_array = geocode_centre
@@ -94,7 +93,6 @@ class MeetupsController < ApplicationController
         lat: user.latitude,
         lng: user.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: { user: user })
-        # marker_html: render_to_string(partial: "marker")
       }
     end
     markers

@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="address-autocomplete"
 export default class extends Controller {
@@ -18,7 +18,6 @@ export default class extends Controller {
   }
 
     #setInputValue(event) {
-      console.log("hello")
       this.user_locationTarget.value = event.result["place_name"]
       }
 

@@ -183,7 +183,7 @@ html, body {
     left: -50%;
 
     opacity: 0.7;
-    z-index: 9999;
+    pointer-events: none;
   }
 }
 
