@@ -12,17 +12,10 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.find(params[:id])
     @user_meetup = UserMeetup.new
     @users = @meetup.users
-
-    @markers = @users.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { user: user })
-        # marker_html: render_to_string(partial: "marker")
-      }
-    end
-    @centre_point = { lat: @meetup.centre_point_array[0],
-                      long: @meetup.centre_point_array[1] }
+    @coordinates = user_coordinates
+    @meetup.centre_point_array = geocode_centre
+    @markers = user_markers
+    @centre_point = centre_point_object
   end
 
   def new
@@ -93,5 +86,33 @@ class MeetupsController < ApplicationController
     numbers = (0..9).to_a
     num_array = numbers.sample(length)
     num_array.join
+  end
+
+  def user_markers
+    markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { user: user })
+        # marker_html: render_to_string(partial: "marker")
+      }
+    end
+    markers
+  end
+
+  def centre_point_object
+    { lat: @meetup.centre_point_array[0],
+      lng: @meetup.centre_point_array[1] }
+  end
+
+  def user_coordinates
+    coordinates = @users.map do |user|
+      [user.latitude, user.longitude]
+    end
+    coordinates
+  end
+
+  def geocode_centre
+    Geocoder::Calculations.geographic_center(@coordinates)
   end
 end

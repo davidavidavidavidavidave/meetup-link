@@ -54,30 +54,6 @@ puts "\n"
 puts "==================================="
 puts "\n"
 
-puts "Sorting geocoder coordinates...."
-
-addresses = ["36 Howberry Road, Thornton Heath, CR7 8HY",
-             "77 Eaton Rise, London, W5 2HE",
-             "12 Oak Grove, London, NW2 3LP",
-             "90 Roding Road, E5 0DS, UK",
-             "88 Moncrieff Street, London, SE15 5HL"]
-
-puts "These are the addresses: #{addresses}"
-
-coordinates = addresses.map do |address|
-  result = Geocoder.coordinates(address)
-  [result[0], result[1]]
-end
-puts "These are the coordinates: #{coordinates}"
-
-centre = Geocoder::Calculations.geographic_center(coordinates)
-puts "This is the centre point: #{centre}"
-puts "Geocoding completed"
-
-puts "\n"
-puts "==================================="
-puts "\n"
-
 puts "Generating meetup....."
 
 meetup_1 = Meetup.create!(
@@ -88,7 +64,6 @@ meetup_1 = Meetup.create!(
   event_date: Date.new(2023, 9, 30),
   purpose: "Munch!",
   passcode: "£123456£",
-  centre_point_array: centre
 )
 
 puts "#{Meetup.count} UserMeetups created"
@@ -121,27 +96,3 @@ UserMeetup.create!(
 )
 
 puts "#{UserMeetup.count} UserMeetups created"
-
-puts "\n"
-puts "==================================="
-puts "\n"
-
-# Chatroom.create!(
-#   name: "Dave_Tom_Raf_Work_Party"
-# )
-# puts "Generating venues...."
-
-
-# # Venue.create!(
-# #   # name: ,
-# #   # location:
-# #   # type:
-# # )
-# # puts "Venue created - #{Venue.name}"
-
-# # Venue.create!(
-# #   # name: ,
-# #   # location:
-# #   # type:
-# # )
-# # puts "Venue created - #{Venue.name}"
