@@ -10,12 +10,16 @@
   <% if current_user == @meetup.user %>
   <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary" %>
   <% end %>
+</div>
+
   <div style="width: 100%; height: 600px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
+      data-map-centre-value="<%= @centre_point.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
+<div class="container">
   <h2>Who's going?</h2>
   <p>User_meetups</p>
   <ul>
@@ -44,41 +48,42 @@
     </ul>
   <% end %>
 
-<div>
-  <% if @meetup.users.include?(current_user) %>
-    <% user_meetup = current_user.user_meetups.find_by(meetup: @meetup) %>
-    <%= button_to "Leave this Meetup", meetup_user_meetup_path(@meetup, user_meetup), method: :delete, class: "btn btn-danger" %>
-  <% else %>
-    <%= simple_form_for([@meetup, @user_meetup]) do |f| %>
-      <p>Fancy joining this meetup?</p>
-      <%= f.input :user_location, label: false, placeholder: 'Please add your location',
-      input_html: {data: {address_autocomplete_target: "user_location"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
-      <%= f.submit 'Join this Meetup' %>
+  <div>
+    <% if @meetup.users.include?(current_user) %>
+      <% user_meetup = current_user.user_meetups.find_by(meetup: @meetup) %>
+      <%= button_to "Leave this Meetup", meetup_user_meetup_path(@meetup, user_meetup), method: :delete, class: "btn btn-danger" %>
+    <% else %>
+      <%= simple_form_for([@meetup, @user_meetup]) do |f| %>
+        <p>Fancy joining this meetup?</p>
+        <%= f.input :user_location, label: false, placeholder: 'Please add your location',
+        input_html: {data: {address_autocomplete_target: "user_location"}, class: "d-none"},
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+        <%= f.submit 'Join this Meetup' %>
+      <% end %>
     <% end %>
+  </div>
+  <div class="actions">
+    <% if @meetup.users.include?(current_user) %>
+      <%= link_to "Chat", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-success" %>
+    <% end %>
+  </div>
+    <% if @meetup.chatroom %>
+    <h2>Chatroom Information:</h2>
+    <p>Name: <%= @meetup.chatroom.name %></p>
+
+    <h2>Messages:</h2>
+    <ul>
+      <% @meetup.chatroom.messages.each do |message| %>
+        <li><%= message.content %> (Sent by: <%= message.user.username %>)</li>
+      <% end %>
+    </ul>
+
+    <!-- Form to create a new message -->
+    <%= form_for([@meetup, @meetup.chatroom, @meetup.chatroom.messages.new]) do |f| %>
+      <%= f.text_field :content %>
+      <%= f.submit "Send" %>
+    <% end %>
+    <% else %>
+    <p>No chatroom available for this meetup.</p>
   <% end %>
 </div>
-<div class="actions">
-  <% if @meetup.users.include?(current_user) %>
-    <%= link_to "Chat", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-success" %>
-  <% end %>
-</div>
-  <% if @meetup.chatroom %>
-  <h2>Chatroom Information:</h2>
-  <p>Name: <%= @meetup.chatroom.name %></p>
-
-  <h2>Messages:</h2>
-  <ul>
-    <% @meetup.chatroom.messages.each do |message| %>
-      <li><%= message.content %> (Sent by: <%= message.user.username %>)</li>
-    <% end %>
-  </ul>
-
-  <!-- Form to create a new message -->
-  <%= form_for([@meetup, @meetup.chatroom, @meetup.chatroom.messages.new]) do |f| %>
-    <%= f.text_field :content %>
-    <%= f.submit "Send" %>
-  <% end %>
-  <% else %>
-  <p>No chatroom available for this meetup.</p>
-<% end %>

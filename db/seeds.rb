@@ -79,11 +79,10 @@ Meetup.create!(
   event_date: Date.new(2023, 9, 30),
   purpose: "Munch!",
   passcode: "£123456£",
-  centre_point_test: centre
+  centre_point_array: centre
 )
 
 puts "Meetup created"
-
 
 puts "Generating user_meetup....."
 

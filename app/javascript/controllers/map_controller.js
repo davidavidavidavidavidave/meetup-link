@@ -4,7 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    centre: Object
   }
 
   connect() {
@@ -17,6 +18,9 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    // console.log("working")
+    // console.log(this.map)
+    // console.log(this.element)
   }
 
   #addMarkersToMap() {
