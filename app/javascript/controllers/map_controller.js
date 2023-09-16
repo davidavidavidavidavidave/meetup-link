@@ -10,17 +10,29 @@ export default class extends Controller {
 
   connect() {
     console.log("working map")
+
     mapboxgl.accessToken = this.apiKeyValue
+
+    const centre = this.centreValue
+
+    console.log(centre.lat)
+    console.log(centre.lng)
 
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v12"
     })
     this.#addMarkersToMap()
+    this.#addCentreToMap(centre)
+    console.log("fitting to markers")
     this.#fitMapToMarkers()
-    // console.log("working")
-    // console.log(this.map)
-    // console.log(this.element)
+  }
+
+  #addCentreToMap(centre) {
+    new mapboxgl.Marker()
+      .setLngLat([ centre.lng, centre.lat ])
+      .addTo(this.map)
+      console.log("adding to map")
   }
 
   #addMarkersToMap() {

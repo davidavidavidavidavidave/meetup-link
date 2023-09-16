@@ -1,4 +1,4 @@
-<div class="container">
+
   <h1>This is the meetup</h1>
   <ul>
     <li>Name: <%= @meetup.name %></li>
@@ -11,7 +11,7 @@
   <% if current_user == @meetup.user %>
     <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary" %>
   <% end %>
-</div>
+
 
 <div style="width: 100%; height: 600px;"
     data-controller="map"
@@ -57,17 +57,20 @@
           <p>Fancy joining this meetup?</p>
           <p>Enter your starting address:</p>
           <%= f.input :user_location, label: false, placeholder: 'Please add your location',
-            input_html: {data: {address_autocomplete_target: "user_location"}, class: "d-none"},
-            wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+          input_html: {data: {address_autocomplete_target: "user_location"}, class: "d-none"},
+          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
           <%= f.submit 'Join this Meetup' %>
         <% end %>
+    </div>
+    <div class="actions">
+      <% if @meetup.users.include?(current_user) %>
+        <%= link_to "Chat", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-success" %>
       <% end %>
     </div>
-
-  <div class="actions">
-    <% if @meetup.chatroom %>
+      <% if @meetup.chatroom %>
       <h2>Chatroom Information:</h2>
       <p>Name: <%= @meetup.chatroom.name %></p>
+
       <h2>Messages:</h2>
       <ul>
         <% @meetup.chatroom.messages.each do |message| %>
@@ -85,3 +88,4 @@
     <% end %>
   </div>
 </div>
+<% end %>
