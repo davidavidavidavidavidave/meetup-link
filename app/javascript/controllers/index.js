@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
+import CopyPasscodeController from "./copy_passcode_controller"
+application.register("copy-passcode", CopyPasscodeController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
