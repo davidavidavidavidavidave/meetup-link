@@ -202,14 +202,14 @@ $outline-color_1: var(--color);
 	--b: 3px;
 	--s: .45em;
 	--color: #84fab0;
-	padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+	padding: 10px 65px;
 	color: $color_1;
 	--_p: var(--s);
 	background: conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
 	transition: .3s linear, color 0s, background-color 0s;
 	outline: var(--b) solid #0000;
 	outline-offset: .6em;
-	font-size: 16px;
+	font-size: 20px;
 	border: 0;
 	user-select: none;
 	-webkit-user-select: none;
@@ -252,7 +252,7 @@ h1 {
 }
 
 h2 {
-  font-size: 55px;
+  font-size: 105px;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 4px;
@@ -268,4 +268,14 @@ h2 {
 
 @media only screen and (max-width: 700px) {
   h2 {font-size: 20px;}
+}
+
+.form-input{
+  position: relative;
+  z-index: 9999;
+}
+
+.form-submit{
+  position: relative;
+  z-index: 9999;
 }
