@@ -37,7 +37,7 @@ class MeetupsController < ApplicationController
     @meetup.user = current_user
     #  add location for initial user at signup
     if @meetup.save
-      redirect_to root_path
+      redirect_to meetup_path(@meetup), notice: 'Meetup created successfully.'
     else
       render :new
     end
