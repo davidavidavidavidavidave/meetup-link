@@ -46,6 +46,18 @@ class MeetupsController < ApplicationController
     end
   end
 
+  def join
+    passcode = params[:passcode]
+    meetup = Meetup.find_by(passcode: passcode)
+
+    if meetup
+      redirect_to meetup_path(meetup)
+    else
+      flash[:alert] = "Invalid passcode. Please try again."
+      redirect_to root_path
+    end
+  end
+
   def create_chatroom
     @meetup = Meetup.find(params[:id])
     # Create a chatroom with the same ID as the meetup
