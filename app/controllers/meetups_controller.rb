@@ -12,6 +12,7 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.find(params[:id])
     @user_meetup = UserMeetup.new
     @users = @meetup.users
+
     @markers = @users.map do |user|
       {
         lat: user.latitude,
@@ -20,6 +21,8 @@ class MeetupsController < ApplicationController
         # marker_html: render_to_string(partial: "marker")
       }
     end
+    @centre_point = { lat: @meetup.centre_point_array[0],
+                      long: @meetup.centre_point_array[1] }
   end
 
   def new
