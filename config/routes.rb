@@ -23,4 +23,6 @@ Rails.application.routes.draw do
       post 'create_chatroom'
     end
   end
+  post "/join_meetup", to: "meetups#join", as: :join_meetup
+
 end

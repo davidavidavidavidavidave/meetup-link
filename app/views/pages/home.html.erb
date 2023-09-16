@@ -12,7 +12,12 @@
   <div class="wrapper">
     <h2>Meetuplink</h2>
     <%= link_to "Create Meetup", new_meetup_path, :class => "button" %>
-    <%= link_to "Join a Meetup", "meetups/1", :class => "button" %>
+
+    <!-- Input field for passcode -->
+    <form action="<%= join_meetup_path %>" method="post" remote="true">
+      <input type="text" name="passcode" placeholder="Enter Passcode" id="passcode-input">
+      <input type="submit" value="Join Meetup" class="button">
+    </form>
   </div>
 
   <div class="gradients-container">
