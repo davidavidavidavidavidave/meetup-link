@@ -23,12 +23,4 @@ Rails.application.routes.draw do
       post 'create_chatroom'
     end
   end
-  # resources :meetups do
-  #   resources :user_meetups
-  #   resource :chatroom, only: [:show, :destroy] do
-  #     post 'create', on: :member  # Use 'post' instead of 'create'
-  #   end
-
-  #   resources :messages, only: :create, module: :chatrooms
-  # end
 end
