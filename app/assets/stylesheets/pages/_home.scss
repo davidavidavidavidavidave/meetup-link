@@ -183,6 +183,7 @@ html, body {
     left: -50%;
 
     opacity: 0.7;
+    z-index: 9999;
   }
 }
 
@@ -192,6 +193,7 @@ html, body {
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  z-index: 9999;
 }
 
 $color_1: var(--color);
@@ -217,7 +219,6 @@ $outline-color_1: var(--color);
   z-index: 9999;
   text-decoration: none;
   margin: 5px;
-
 
 
 	&:hover {
@@ -271,11 +272,22 @@ h2 {
 }
 
 .form-input{
+  color:#84fab0;
   position: relative;
   z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+  border-color: #84fab0;
+  z-index: 9999
+}
+
+.form-label {
+  color: #84fab0 !important;
+  z-index: 9999;
+  font-size: 25px;
 }
 
 .form-submit{
-  position: relative;
   z-index: 9999;
+  position: relative;
 }
