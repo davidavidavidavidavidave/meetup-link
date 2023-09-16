@@ -12,33 +12,13 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "#{current_user.username}", "#", class: "nav-link" %>
           </li>
-        <li class="nav-item dropdown">
-  <% image_filename = "#{current_user.username}.png" %>
-  <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
-    <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <%= image_tag image_filename, class: "avatar", alt: "dropdown menu" %>
-      <%= "#{current_user.username}" %>
-    </a>
-  <% else %>
-    <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png", class: "avatar", alt: "dropdown menu" %>
-    </a>
-  <% end %>
-  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-    <%= link_to "Action", "#", class: "dropdown-item" %>
-    <!-- Additional dropdown menu items -->
-  </div>
-</li>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item">
