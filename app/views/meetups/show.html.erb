@@ -1,25 +1,27 @@
-
+<div class="container">
+  <div class="col-sm-3">
   <h1>This is the meetup</h1>
-  <ul>
-    <li>Name: <%= @meetup.name %></li>
-    <li>Event Date: <%= @meetup.event_date %></li>
-    <li>Purpose: <%= @meetup.purpose %></li>
-    <li>Location: <%= @meetup.location %></li>
-    <li>Passcode: <%= @meetup.passcode %> <a href="#" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Share</a></li>
-    <% @meetup.id %><% @meetup.user_id %></li>
-  </ul>
-  <% if current_user == @meetup.user %>
-    <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary" %>
-  <% end %>
-
-
-<div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-centre-value="<%= @centre_point.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <ul>
+      <li>Name: <%= @meetup.name %></li>
+      <li>Event Date: <%= @meetup.event_date %></li>
+      <li>Purpose: <%= @meetup.purpose %></li>
+      <li>Location: <%= @meetup.location %></li>
+      <li>Passcode: <%= @meetup.passcode %> <a href="#" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Share</a></li>
+      <% @meetup.id %><% @meetup.user_id %></li>
+    </ul>
+    <% if current_user == @meetup.user %>
+      <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="col-sm-9">
+    <div style="width: 100%; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-centre-value="<%= @centre_point.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 </div>
-
 <div class="container">
   <h2>Who's going?</h2>
   <ul>
