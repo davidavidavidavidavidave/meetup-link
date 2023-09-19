@@ -23,10 +23,12 @@ export default class extends Controller {
   }
 
   #addCentreToMap(centre) {
-    console.log("adding centre marker")
     const popup = new mapboxgl.Popup().setHTML(centre.centre_window_html)
-    console.log(popup)
-    new mapboxgl.Marker()
+
+    const customMarker = document.createElement("div")
+    customMarker.innerHTML = centre.centre_marker_html
+
+    new mapboxgl.Marker(customMarker)
       .setLngLat([ centre.lng, centre.lat ])
       .setPopup(popup)
       .addTo(this.map)
@@ -35,7 +37,11 @@ export default class extends Controller {
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-      new mapboxgl.Marker()
+
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
