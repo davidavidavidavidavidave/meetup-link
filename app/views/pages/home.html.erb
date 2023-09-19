@@ -14,11 +14,10 @@
     <%= link_to "Create Meetup", new_meetup_path, :class => "button" %>
 
     <!-- Input field for passcode -->
-    <form action="<%= join_meetup_path %>" method="post" remote="true">
-      <input type="text" name="passcode" placeholder="Enter Passcode" id="passcode-input">
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-      <input type="submit" value="Join Meetup" class="button">
-    </form>
+    <%= form_with(url: join_meetup_path, method: :post, remote: true) do |form| %>
+  <%= form.text_field :passcode, placeholder: "Enter Passcode", id: "passcode-input" %>
+  <%= form.submit "Join Meetup", class: "button" %>
+<% end %>
   </div>
 
   <div class="gradients-container">
