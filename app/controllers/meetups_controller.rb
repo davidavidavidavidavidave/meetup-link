@@ -99,8 +99,11 @@ class MeetupsController < ApplicationController
   end
 
   def centre_point_object
-    { lat: @meetup.centre_point_array[0],
-      lng: @meetup.centre_point_array[1] }
+    {
+      lat: @meetup.centre_point_array[0],
+      lng: @meetup.centre_point_array[1],
+      centre_window_html: render_to_string(partial: "centre_window", locals: { centre: @meetup.centre_point_array })
+    }
   end
 
   def user_coordinates
