@@ -92,7 +92,8 @@ class MeetupsController < ApplicationController
       {
         lat: user.latitude,
         lng: user.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { user: user })
+        info_window_html: render_to_string(partial: "info_window", locals: { user: user }),
+        marker_html: render_to_string(partial: "marker")
       }
     end
     markers
@@ -102,7 +103,8 @@ class MeetupsController < ApplicationController
     {
       lat: @meetup.centre_point_array[0],
       lng: @meetup.centre_point_array[1],
-      centre_window_html: render_to_string(partial: "centre_window", locals: { centre: @meetup.centre_point_array })
+      centre_window_html: render_to_string(partial: "centre_window", locals: { centre: geocode_address(@meetup.centre_point_array) }),
+      centre_marker_html: render_to_string(partial: "centre_marker")
     }
   end
 
@@ -111,6 +113,11 @@ class MeetupsController < ApplicationController
       [user.latitude, user.longitude]
     end
     coordinates
+  end
+
+  def geocode_address(coordinates)
+    results = Geocoder.search(coordinates)
+    "#{results.first.street}, #{results.first.city}, #{results.first.postal_code}"
   end
 
   def geocode_centre
