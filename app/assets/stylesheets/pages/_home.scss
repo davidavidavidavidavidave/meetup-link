@@ -20,6 +20,7 @@ html, body {
   opacity: 0.8;
   user-select: none;
   text-shadow: 1px 1px rgba(0,0,0,0.1);
+
 }
 
 :root {
@@ -222,10 +223,9 @@ $outline-color_1: var(--color);
   text-decoration: none;
   margin: 5px;
 
-
 	&:hover {
 		--_p: 0px;
-		outline-color: $outline-color_1;
+		color:white;
 		outline-offset: .05em;
 	}
 	&:focus-visible {
@@ -247,11 +247,12 @@ h1 {
   letter-spacing: 4px;
   margin: 0;
   margin-bottom: 30px;
-  z-index: 9999;
+  z-index: 100000;
 
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
 }
 
 h2 {
@@ -267,6 +268,7 @@ h2 {
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
 }
 
 @media only screen and (max-width: 700px) {
@@ -276,11 +278,10 @@ h2 {
 .form-input{
   color:#84fab0;
   position: relative;
-  z-index: 9999;
   background-color: rgba(0, 0, 0, 0.5);
   font-size: 20px;
   border-color: #84fab0;
-  z-index: 9999
+  z-index: 9999;
 }
 
 .form-label {
@@ -294,6 +295,30 @@ h2 {
 .form-submit{
   z-index: 9999;
   position: relative;
+}
+
+
+#passcode-input {
+  color:white;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  border-color: #84fab0;
+  z-index: 9999;
+}
+
+.card {
+  background-color: transparent;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  border-radius: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  border-color: #84fab0;
+  padding: 80px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
 }
 
 $green:#84fab0;
