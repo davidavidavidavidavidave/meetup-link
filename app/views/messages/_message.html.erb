@@ -1,7 +1,12 @@
-<div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.username %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
+<div class="<%= message.user_id == current_user.id ? 'msg right-msg' : 'msg left-msg' %>">
+  <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"></div>
+  <div class="msg-bubble">
+    <div class="msg-info">
+      <small>
+        <strong><%= message.user.username %></strong>
+        <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+      </small>
+      <p><%= message.content %></p>
+    </div>
+  </div>
+</div>
