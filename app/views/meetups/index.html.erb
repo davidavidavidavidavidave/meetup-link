@@ -1,0 +1,14 @@
+<ul>
+  <% @meetups.each do |meetup| %>
+    <li>
+      <strong>Name:</strong> <%= meetup.name %><br>
+      <strong>Event Date:</strong> <%= meetup.event_date %><br>
+      <strong>Purpose:</strong> <%= meetup.purpose %><br>
+      <strong>Location:</strong> <%= meetup.location %><br>
+      <!-- Add any other meetup attributes you want to display -->
+
+      <!-- Add "View this Meetup" button -->
+      <%= link_to "View this Meetup", meetup_path(meetup), class: "btn btn-primary" %>
+    </li>
+  <% end %>
+</ul>

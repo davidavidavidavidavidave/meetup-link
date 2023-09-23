@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for([@meetup, @user_meetup]) do |f| %>
+    <%= f.input :user_location %>
+    <%= f.submit 'Join this Meetup' %>
+  <% end %>
+    <%= link_to 'Back to Meetup', @meetup %>
+
+</div>
