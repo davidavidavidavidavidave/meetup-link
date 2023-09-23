@@ -7,18 +7,21 @@
         <feBlend in="SourceGraphic" in2="goo" />
       </filter>
     </defs>
-  </svg>
+  </svg>x
 
   <div class="wrapper">
     <h2>Meetuplink</h2>
-    <%= link_to "Create Meetup", new_meetup_path, :class => "button" %>
-
-    <!-- Input field for passcode -->
-    <%= form_with(url: join_meetup_path, method: :post, remote: true) do |form| %>
-  <%= form.text_field :passcode, placeholder: "Enter Passcode", id: "passcode-input" %>
-  <%= form.submit "Join Meetup", class: "button" %>
-<% end %>
-  </div>
+      <div style= "text-align: center;" >
+        <%= link_to "Create Meetup", new_meetup_path, :class => "button" %>
+        <!-- Input field for passcode -->
+          <%= form_with(url: join_meetup_path, method: :post, remote: true) do |form| %>
+          <%= form.submit "Join Meetup", class: "button" %>
+          <div>
+            <%= form.text_field :passcode, placeholder: "Enter Passcode", id: "passcode-input" %>
+          </div>
+        </div>
+        <% end %>
+    </div>
 
   <div class="gradients-container">
     <div class="g1"></div>
