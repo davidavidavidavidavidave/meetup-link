@@ -50,22 +50,21 @@
         <%# </div> %>
       <%# <% end %>
     <%# </div> %>
-
-    <div class="card-trip-members">
+    <div>
       <h3>Who's going?</h3>
-      <ul>
-        <% @meetup.users.each do |user| %>
-          <li>
-            <% image_filename = "#{user.username}.png" %>
-            <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
-              <%= image_tag image_filename, alt: "Avatar", class: "avatar-large" %>
-            <% else %>
-              <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png", alt: "Default Avatar", class: "avatar-large" %>
-            <% end %><%= user.username %>
-            <br> <!-- Add a line break for spacing -->
-          </li>
-        <% end %>
-      </ul>
+      <div class="card-trip-members">
+            <% @meetup.users.each do |user| %>
+              <div class="card-trip-avatar">
+                  <% image_filename = "#{user.username}.png" %>
+                <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
+                  <%= image_tag image_filename, alt: "Avatar", class: "avatar-large" %>
+                <% else %>
+                  <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png", alt: "Default Avatar", class: "avatar-large" %>
+                <% end %>
+                <p><%= user.username %></p>
+              </div>
+            <% end %>
+      </div>
     </div>
   </div>
   <%# </div> %>

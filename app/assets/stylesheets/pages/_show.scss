@@ -76,11 +76,26 @@ p {
   background: white;
   flex-grow: 1;
   display: grid;
-  // background: #292d53;
+  grid-template-columns: 1fr 1fr;
+  background: #292d53;
   margin-right: 10px;
   border: 2px solid rgb(201, 148, 34);
   // margin-left: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-trip-avatar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid rgb(150, 230, 46);
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 4px;
+}
+
+.card-trip-avatar p {
+  margin-right: 16px;
 }
 
 .card-trip>img {
