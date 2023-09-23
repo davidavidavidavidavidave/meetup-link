@@ -1,16 +1,16 @@
-
 <div class="gradient-bg">
-<h1>Create a Meetup</h1>
-<div class="container">
-  <div class="card">
-    <%= simple_form_for(@meetup) do |f| %>
+  <h1>Create a Meetup</h1>
+  <div class="container">
+    <div class="card">
+      <%= simple_form_for(@meetup) do |f| %>
 
-        <%= f.input :name, input_html: {class: "form-input" } %>
-        <%= f.input :event_date, input_html: {class: "form-input" } %>
-        <%= f.input :purpose, input_html: {class: "form-input" } %>
-        <%= f.input :location, input_html: {class: "form-input" } %>
-        <%= f.submit class: "form-submit button" %>
-    <% end %>
+          <%= f.input :name, input_html: {class: "form-input" } %>
+          <%= f.input :event_date, input_html: {class: "form-input" } %>
+          <%= f.input :purpose, input_html: {class: "form-input" } %>
+          <%= f.input :location, input_html: {class: "form-input" } %>
+          <%= f.submit class: "form-submit button" %>
+      <% end %>
+    </div> 
   </div>
 </div>
 

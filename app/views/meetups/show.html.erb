@@ -1,60 +1,57 @@
 <div class="container-show-main">
-  <div class="col-sm-2">
+  <div class="col-sm-4">
     <div class="card-meetup-info">
       <%# <%= image_tag "meetup_logo.png" %>
-      <div class="card-trip-infos">
-        <h1>This is the meetup</h1>
-          <ul>
-            <li>Name: <%= @meetup.name %></li>
-            <li>Event Date: <%= @meetup.event_date %></li>
-            <li>Purpose: <%= @meetup.purpose %></li>
-            <li>Location: <%= @meetup.location %></li>
-            <li>Passcode: <%= @meetup.passcode %> <a href="#" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Share</a></li>
-            <% @meetup.id %><% @meetup.user_id %></li>
-          </ul>
-          <% if current_user == @meetup.user %>
-            <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary meetup-info" %>
-          <% end %>
+        <div class="card-trip-infos">
+          <h1>This is the meetup</h1>
+            <ul>
+              <li>Name: <%= @meetup.name %></li>
+              <li>Event Date: <%= @meetup.event_date %></li>
+              <li>Purpose: <%= @meetup.purpose %></li>
+              <li>Location: <%= @meetup.location %></li>
+              <li>Passcode: <%= @meetup.passcode %> <a href="#" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Share</a></li>
+              <% @meetup.id %><% @meetup.user_id %></li>
+            </ul>
+            <div class="container-edit-button">
+              <% if current_user == @meetup.user %>
+                <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary meetup-info" %>
+              <% end %>
+            </div>
         </div>
-      </div>
-      <br>
-    <div>
+      <%# <br> %>
+    </div>
+
+    <div class="meetup-buttons">
 
       <% if @meetup.users.include?(current_user) %>
         <% user_meetup = current_user.user_meetups.find_by(meetup: @meetup) %>
             <div class="d-flex justify-content-center text-center">
-            <%= button_to "Leave this Meetup", meetup_user_meetup_path(@meetup, user_meetup), method: :delete, class: "btn btn-info" %>
-          </div>
+              <%= button_to "Leave this Meetup", meetup_user_meetup_path(@meetup, user_meetup), method: :delete, class: "btn btn-info" %>
+            </div>
       <% else %>
-        <%# <p class="text-center">Fancy joining this meetup?</p> %>
+        <p class="text-center">Fancy joining this meetup?</p>
           <div class="d-flex justify-content-center text-center">
-          <%= button_to "Join meetup", meetup_user_meetups_path(@meetup), class: "btn btn-primary" %>
+            <%= button_to "Join meetup", meetup_user_meetups_path(@meetup), class: "btn btn-primary" %>
           </div>
       <% end %>
-    </div>
-    <br>
-    <div class="actions">
-      <% if @meetup.users.include?(current_user) %>
-        <div class="d-flex justify-content-center text-center">
-        <%= link_to "Chat", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-success" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="col-sm-9">
-    <div class="card-trip">
-      <div style="width: 100%; height: 600px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-centre-value="<%= @centre_point.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div class="actions">
+        <% if @meetup.users.include?(current_user) %>
+          <div class="d-flex justify-content-center text-center">
+            <%= link_to "Chat", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-success" %>
+          </div>
+        <% end %>
       </div>
     </div>
-  </div>
+    <br>
+    <%# <div class="actions"> %>
+      <%# <% if @meetup.users.include?(current_user) %>
+        <%# <div class="d-flex justify-content-center text-center"> %>
+          <%# <%= link_to "Chat", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-success" %>
+        <%# </div> %>
+      <%# <% end %>
+    <%# </div> %>
 
-  <div class="col-sm-1">
-    <div class="card-trip">
+    <div class="card-trip-members">
       <h3>Who's going?</h3>
       <ul>
         <% @meetup.users.each do |user| %>
@@ -71,7 +68,39 @@
       </ul>
     </div>
   </div>
+  <%# </div> %>
+
+  <div class="col-sm-8">
+    <div class="card-trip-map">
+      <div style="height: 664px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-centre-value="<%= @centre_point.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
 </div>
+
+  <%# <div class="col-sm-1"> %>
+    <%# <div class="card-trip"> %>
+      <%# <h3>Who's going?</h3> %>
+      <%# <ul> %>
+        <%# <% @meetup.users.each do |user| %>
+          <%# <li> %>
+            <%# <% image_filename = "#{user.username}.png" %>
+            <%# <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
+              <%# <%= image_tag image_filename, alt: "Avatar", class: "avatar-large" %>
+            <%# <% else %>
+              <%# <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png", alt: "Default Avatar", class: "avatar-large" %>
+            <%# <% end %>
+            <%# <br> <!-- Add a line break for spacing --> %>
+          <%# </li> %>
+        <%# <% end %>
+      <%# </ul> %>
+    <%# </div> %>
+  <%# </div> %>
+<%# </div> %>
 
 
   <%# For demo only, complete me! %>
@@ -92,7 +121,7 @@
   </div>
   <div class="col-sm-3">
     <div class="card-trip">
-      <%= image_tag "chat_logo" %>
+      <%= image_tag "chat_logo.png" %>
         <div class="card-trip-infos">
       <% if @meetup.chatroom %>
         <ul>

@@ -3,11 +3,12 @@
 // }
 .container-show-main {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 20px;
   // box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
   // border: 4px solid rgb(218, 22, 228);
   background: linear-gradient(to bottom, rgb(7, 1, 35), #2f3d73);
+  padding-top: 72px;
 }
 
 // map {
@@ -23,10 +24,11 @@ p {
   // text-align: center;
   overflow: hidden;
   background: #292d53;
+  justify-content: center;
   flex-grow: 1;
   display: grid;
-  margin-right: 16px;
-  // margin-left: 10px;
+  margin-right: 8px;
+  // margin-left: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   border: solid 2px green;
@@ -49,7 +51,6 @@ p {
   background: linear-gradient(to top, rgb(7, 1, 35), #2f3d73);
 }
 
-
 .cards {
   // flex-grow: 1;
   // display: grid;
@@ -59,12 +60,25 @@ p {
   border: 4px solid rgb(218, 22, 228);
 }
 
-.card-trip {
+.card-trip-map {
   overflow: hidden;
   background: white;
   flex-grow: 1;
   display: grid;
+  border: 4px solid rgb(218, 22, 228);
+  margin-right: 4px;
+  margin-left: auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-trip-members {
+  overflow: hidden;
+  background: white;
+  flex-grow: 1;
+  display: grid;
+  // background: #292d53;
   margin-right: 10px;
+  border: 2px solid rgb(201, 148, 34);
   // margin-left: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
@@ -88,13 +102,13 @@ p {
 }
 
 
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  // align-items: flex-end;
-  position: relative;
-}
+// .card-trip .card-trip-infos {
+//   padding: 16px;
+//   display: flex;
+//   justify-content: space-between;
+//   // align-items: flex-end;
+//   position: relative;
+// }
 
 .card-trip-infos .card-trip-user {
   position: absolute;
@@ -102,6 +116,16 @@ p {
   top: -20px;
   width: 40px;
 }
+
+.meetup-buttons {
+  display: flex;
+  border: 2px solid rgb(150, 230, 46);
+  justify-content: space-between;
+  margin-right: 10px;
+  margin-top: 8px;
+}
+
+// .actions {}
 
 .message-form {
   display: flex;
@@ -119,4 +143,26 @@ p {
 .message-send-button {
   width: 100%;
   /* Take up the full width of the container */
+}
+
+.btn.btn-primary.meetup-info {
+  // justify-content: center;
+  border: 4px solid rgb(22, 135, 146);
+}
+
+.container-edit-button {
+  border: 4px solid rgb(221, 27, 53);
+}
+
+// border styling to see in development, delete for prod
+
+.container-show-main {
+  border: 4px solid rgb(218, 22, 228);
+}
+
+.col-sm-4 {
+  border: 4px solid rgb(22, 135, 146);
+  height: 672px;
+  justify-content: center;
+  // width: max-content;
 }
