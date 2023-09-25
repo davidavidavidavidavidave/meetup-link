@@ -3,11 +3,14 @@ class MeetupsController < ApplicationController
 
 
   def show
-    @global_restaurants = ["The Phoenix, Cuisine: British Pub Food Address: 23 Smith St, Chelsea, London SW3 4EE, Distance: Approximately 0.2 miles away",
-                           "The Good Life Eatery, Cuisine: Healthy, Vegetarian-Friendly, Address: 59 Sloane Ave, Chelsea, London SW3 3DH, Distance: Approximately 0.4 miles away",
-                           "Kurobuta Chelsea, Cuisine: Japanese, Asian Fusion, Address: 312 King's Rd, Chelsea, London SW3 5UH, Distance: Approximately 0.3 miles away",
-                           "Medlar, Cuisine: Modern European, Address: 438 King's Rd, Chelsea, London SW10 0LJ, Distance: Approximately 0.4 miles away",
-                           "Aubaine, Cuisine: French, European, Address: 260-262 Brompton Rd, Knightsbridge, London SW3 2AS, Distance: Approximately 0.4 miles away"]
+    @global_restaurants = ["Brasserie Zédel - Classic French brasserie located in a stunning Art Deco setting. 20 Sherwood St, Soho, London W1F 7ED",
+                           "Dishoom - Popular Indian restaurant inspired by the Irani cafés of Bombay. 5 St Martin's Ln London WC2N 4AP",
+                           "Hawksmoor Air Street - Steakhouse known for its premium quality steaks and seafood. 5A Air St, London W1J 0AD",
+                           "Duck & Rice - Modern Chinese gastropub that combines classic Cantonese cuisine with a pub-style setting. 90 Berwick St, Soho, London W1F 0QB",
+                           "Barrafina Dean Street - Spanish tapas restaurant that offers a range of authentic and flavorful dishes. 26-27 Dean St, Soho, London W1D 3LL",
+                           "Polpo Soho - Venetian-inspired restaurant known for its small plates and relaxed ambiance. 41 Beak St, Soho, London W1F 9SB",
+                           "Honest Burgers - Known for its delicious, locally-sourced burgers made with high-quality ingredients. 4 Market Pl, London W1W 8AD",
+                           "The Riding House Café - Brasserie offering a diverse menu of British and European dishes, 43-51 Great Titchfield St, Fitzrovia, London W1W 7PQ"]
 
     @meetup = Meetup.find(params[:id])
     @users = @meetup.users
