@@ -1,48 +1,56 @@
 <div class="container-show-main">
   <div class="col-sm-4">
     <div class="card-meetup-info">
-      <%# <%= image_tag "meetup_logo.png" %>
-        <div class="card-trip-infos">
+      <div class="card-meetup-info-inner">
+        <div class="card-meetup-info-inner-content">
           <h1>This is the meetup</h1>
-            <ul>
-              <li>Name: <%= @meetup.name %></li>
-              <li>Event Date: <%= @meetup.event_date %></li>
-              <li>Purpose: <%= @meetup.purpose %></li>
-              <li>Location: <%= @meetup.location %></li>
-              <li>Passcode: <%= @meetup.passcode %> <a href="#" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Share</a></li>
-              <% @meetup.id %><% @meetup.user_id %></li>
-            </ul>
+            <%# <ul> %>
+              <p>Name: <%= @meetup.name %></p>
+              <p>Event Date: <%= @meetup.event_date %></p>
+              <p>Purpose: <%= @meetup.purpose %></p>
+              <p>Location: <%= @meetup.location %></p>
+              <p>Passcode: <%= @meetup.passcode %> <a href="#" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Share</a></p>
+              <% @meetup.id %><% @meetup.user_id %></p>
+            <%# </ul> %>
             <div class="container-edit-button">
               <% if current_user == @meetup.user %>
                 <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary meetup-info" %>
               <% end %>
             </div>
         </div>
-      <%# <br> %>
+      </div>
     </div>
 
     <div class="meetup-buttons">
-
       <% if @meetup.users.include?(current_user) %>
-        <% user_meetup = current_user.user_meetups.find_by(meetup: @meetup) %>
-            <div class="d-flex justify-content-center text-center">
-              <%= button_to "Leave this Meetup", meetup_user_meetup_path(@meetup, user_meetup), method: :delete, class: "btn btn-info" %>
-            </div>
+        <div class="meetup-buttons-joined">
+          <% user_meetup = current_user.user_meetups.find_by(meetup: @meetup) %>
+              <div class="d-flex justify-content-center text-center">
+                <%= button_to "Leave Meetup", meetup_user_meetup_path(@meetup, user_meetup), method: :delete, class: "btn btn-info-joined" %>
+              </div>
+          <div class="d-flex justify-content-center text-center">
+            <%= link_to "Chat", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-success-joined" %>
+          </div>
+        </div>
       <% else %>
-        <p class="text-center">Fancy joining this meetup?</p>
-          <div class="d-flex justify-content-center text-center">
-            <%= button_to "Join meetup", meetup_user_meetups_path(@meetup), class: "btn btn-primary" %>
-          </div>
+        <div class="meetup-buttons-to-join">
+        <%# <p class="text-center">Fancy joining this meetup?</p> %>
+          <%# <div class="justify-content-center text-center"> %>
+          <%= button_to "Join Meetup", meetup_user_meetups_path(@meetup), class: "btn btn-primary-join" %>
+        </div>
       <% end %>
-      <div class="actions">
-        <% if @meetup.users.include?(current_user) %>
-          <div class="d-flex justify-content-center text-center">
-            <%= link_to "Chat", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-success" %>
-          </div>
-        <% end %>
-      </div>
+      <%# <div class="actions"> %>
+        <%# <% if @meetup.users.include?(current_user) %>
+          <%# <div class="d-flex justify-content-center text-center"> %>
+            <%# <%= link_to "Chat", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-success" %>
+          <%# </div> %>
+        <%# <% end %>
+      <%# </div> %>
     </div>
-    <br>
+
+
+
+    <%# <br> %>
     <%# <div class="actions"> %>
       <%# <% if @meetup.users.include?(current_user) %>
         <%# <div class="d-flex justify-content-center text-center"> %>
@@ -50,25 +58,25 @@
         <%# </div> %>
       <%# <% end %>
     <%# </div> %>
-
-    <div class="card-trip-members">
-      <h3>Who's going?</h3>
-      <ul>
-        <% @meetup.users.each do |user| %>
-          <li>
-            <% image_filename = "#{user.username}.png" %>
-            <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
-              <%= image_tag image_filename, alt: "Avatar", class: "avatar-large" %>
-            <% else %>
-              <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png", alt: "Default Avatar", class: "avatar-large" %>
-            <% end %><%= user.username %>
-            <br> <!-- Add a line break for spacing -->
-          </li>
-        <% end %>
-      </ul>
+    <div class="meetup-ppl-going">
+      <div class="meetup-ppl-going-inner">
+        <h2>Who's going?</h2>
+        <div class="meetup-ppl-going-members">
+              <% @meetup.users.each do |user| %>
+                <div class="meetup-ppl-going-members-avatar">
+                    <% image_filename = "#{user.username}.png" %>
+                  <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
+                    <%= image_tag image_filename, alt: "Avatar", class: "avatar-large" %>
+                  <% else %>
+                    <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png", alt: "Default Avatar", class: "avatar-large" %>
+                  <% end %>
+                  <p><%= user.username %></p>
+                </div>
+              <% end %>
+        </div>
+      </div>
     </div>
   </div>
-  <%# </div> %>
 
   <div class="col-sm-8">
     <div class="card-trip-map">
@@ -106,19 +114,22 @@
   <%# For demo only, complete me! %>
 <div class="container-show-second">
   <div class="col-sm-9">
-    <div class="card-trip">
     <% if @meetup.users.include?(current_user) %>
-      <p>Suggested Places:</p>
-      <ol>
-        <% @global_restaurants.each do |restaurant| %>
-          <li>
-            <%= restaurant %>
-          </li>
-        <% end %>
-      </ol>
-      <% end %>
-    </div>
+      <div class="card-suggested-places">
+        <div class="card-suggested-places-inner">
+          <h1>SUGGESTED PLACES</h1>
+          <ol>
+            <% @global_restaurants.each do |restaurant| %>
+              <li>
+                <%= restaurant %>
+              </li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+    <% end %>
   </div>
+
   <div class="col-sm-3">
     <div class="card-trip">
       <%= image_tag "chat_logo.png" %>
