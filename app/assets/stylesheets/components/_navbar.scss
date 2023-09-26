@@ -2,11 +2,11 @@
   justify-content: space-between;
   background-color: transparent;
   color: white;
-  position:absolute;
+  position: absolute;
   z-index: 100000;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   width: 100vw;
-  padding-bottom: 15px;
+  padding-bottom: 1px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -17,11 +17,19 @@
   width: 40px;
 }
 
-.nav-link{
-  color:$green;
-  font-size: 20px;
+.nav-link {
+  color: $green;
+  font-size: 24px;
 
-  &:hover{
-    color:white;
+  &:hover {
+    color: white;
   }
+}
+
+.move-to-right {
+  justify-content: flex-end !important;
+}
+
+.navbar-nav.me-auto {
+  padding-right: 24px;
 }
