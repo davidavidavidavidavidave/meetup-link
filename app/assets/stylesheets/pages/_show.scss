@@ -37,7 +37,9 @@
 
 p {
   color: white;
-  font-size: 20px;
+  font-family: 'Raleway';
+  font-weight: 300;
+  font-style: normal;
 }
 
 // This is the meetup card structure
@@ -65,14 +67,16 @@ p {
 }
 
 .card-meetup-info-inner-content {
-  padding-top: 4px;
-  padding-bottom: 4px;
+  // padding-top: 4px;
+  // padding-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 .card-meetup-info-inner-content p {
+  line-height: 1.4;
   padding-top: 0px;
   padding-bottom: 0px;
-  font-size: 1.1em;
+  font-size: 1em;
   margin: 0;
   padding: 0;
 }
@@ -162,13 +166,17 @@ p {
 }
 
 .card-suggested-places-inner h1 {
-  font-size: 2.5em;
+  font-size: 3.5em;
   padding-top: 16px;
-  padding-left: 24px;
+  padding-left: 16px;
 }
 
 .card-suggested-places-inner li {
-  font-size: 1.75em;
+  font-size: 1.4em;
+  font-family: 'Raleway';
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.6;
   // padding-top: 16px;
   // padding-left: 24px;
 }
