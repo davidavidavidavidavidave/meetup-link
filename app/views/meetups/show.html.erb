@@ -7,7 +7,7 @@
             <%# <ul> %>
               <p>Name: <%= @meetup.name %></p>
               <p>Event Date: <%= @meetup.event_date %></p>
-              <p>Purpose: <%= @meetup.purpose %></p>
+              <p>Centre: <%= @centre_address %></p>
               <p>Location: <%= @meetup.location %></p>
               <p>Passcode: <%= @meetup.passcode %> <a href="#" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Share</a></p>
               <% @meetup.id %><% @meetup.user_id %></p>

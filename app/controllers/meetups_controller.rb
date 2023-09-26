@@ -1,7 +1,6 @@
 class MeetupsController < ApplicationController
   # before_action :set_user
 
-
   def show
     @suggested_places = generate_suggested
     @meetup = Meetup.find(params[:id])
@@ -9,7 +8,9 @@ class MeetupsController < ApplicationController
     @coordinates = user_coordinates
     @meetup.centre_point_array = geocode_centre
     @markers = user_markers
-    @centre_point = centre_point_object
+    @centre_address = geocode_address(@meetup.centre_point_array)
+    @centre_point = centre_point_object(@centre_address)
+    # raise
   end
 
   def new
@@ -94,11 +95,11 @@ class MeetupsController < ApplicationController
     markers
   end
 
-  def centre_point_object
+  def centre_point_object(centre_address)
     {
       lat: @meetup.centre_point_array[0],
       lng: @meetup.centre_point_array[1],
-      centre_window_html: render_to_string(partial: "centre_window", locals: { centre: geocode_address(@meetup.centre_point_array) }),
+      centre_window_html: render_to_string(partial: "centre_window", locals: { centre: centre_address }),
       centre_marker_html: render_to_string(partial: "centre_marker")
     }
   end
