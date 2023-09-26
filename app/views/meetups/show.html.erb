@@ -109,51 +109,24 @@
   <%# </div> %>
 <%# </div> %>
 
-
-  <%# For demo only, complete me! %>
 <div class="container-show-second">
-  <div class="col-sm-9">
+  <div class="col-sm-12">
     <% if @meetup.users.include?(current_user) %>
       <div class="card-suggested-places">
         <div class="card-suggested-places-inner">
           <h1>SUGGESTED PLACES</h1>
           <ol>
-            <% @suggested_places.each do |suggested_place| %>
-              <li>
-                <%= suggested_place %>
-              </li>
+            <% @suggested_places.each_with_index do |suggested_place, index| %>
+              <div class="suggested-list">
+                <li>
+                  <%= suggested_place %>
+                </li>
+                <%= link_to "Option #{index + 1}", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-confirm" %>
+              </div>
             <% end %>
           </ol>
         </div>
       </div>
     <% end %>
-  </div>
-
-  <div class="col-sm-3">
-    <div class="card-trip">
-      <%= image_tag "chat_logo.png" %>
-        <div class="card-trip-infos">
-      <% if @meetup.chatroom %>
-        <ul>
-          <% recent_messages = @meetup.chatroom.messages.last(5).reverse %>
-          <% recent_messages.each do |message| %>
-            <li>
-              <div class="messages" data-chatroom-subscription-target="messages">
-                <%= render "messages/message", message: message %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-        <!-- Form to create a new message -->
-        <div class="message-form">
-          <%= form_for([@meetup, @meetup.chatroom, @meetup.chatroom.messages.new]) do |f| %>
-            <%= f.text_field :content, class: 'message-content', placeholder: 'Type your message here' %>
-            <%= f.submit "Send", class: 'message-send-button' %>
-          <% end %>
-        </div>
-      <% else %>
-        <p>No chatroom available for this meetup.</p>
-      <% end %>
-    </div>
   </div>
 </div>
