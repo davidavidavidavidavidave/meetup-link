@@ -29,12 +29,18 @@
   // border: 4px solid rgb(218, 22, 228);
   margin-right: 4px;
   margin-left: auto;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  // box-shadow: 0 0 10px rgba(237, 232, 232, 0.689);
+  box-shadow: 8px 8px 16px rgba(1, 1, 1, 0.461);
   padding: 3px;
   box-sizing: border-box;
   position: relative;
   border-radius: 32px;
 }
+
+// .card-trip-map:hover {
+//   box-shadow: 0 0 10px rgba(237, 232, 232, 0.689);
+//   transition: 0.6s ease;
+// }
 
 p {
   color: white;
@@ -58,7 +64,7 @@ p {
   flex-grow: 0.5;
   display: grid;
   margin-right: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 8px 16px rgba(1, 1, 1, 0.461);
   border-radius: 32px;
   padding: 2px;
   box-sizing: border-box;
@@ -105,7 +111,7 @@ p {
   flex-grow: 1;
   display: grid;
   margin-right: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 8px 16px rgba(1, 1, 1, 0.461);
   border-radius: 32px;
   padding: 2px;
   box-sizing: border-box;
@@ -182,7 +188,7 @@ p {
   flex-grow: 0.5;
   display: grid;
   margin-right: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 8px 16px rgba(1, 1, 1, 0.461);
   border-radius: 32px;
   padding: 2px;
   box-sizing: border-box;
