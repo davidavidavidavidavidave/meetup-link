@@ -1,15 +1,27 @@
-<div class="container chatroom" data-controller="chatroom-subscription"data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-      <h1>#<%= @chatroom.name %></h1>
+<div class="container">
+  <div class="row">
+    <!-- Empty space column (3 columns wide) on the left -->
+    <div class="col-md-2"></div>
 
-      <div class="messages" data-chatroom-subscription-target="messages">
+    <!-- Chatroom container column (6 columns wide) in the center -->
+    <div class="col-md-8">
+      <div class="chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-current-user-id="<%= current_user.id %>">
+        <h1>#<%= @chatroom.name %></h1>
+
+        <div class="messages" data-chatroom-subscription-target="messages">
           <% @chatroom.messages.each do |message| %>
           <%= render "messages/message", message: message %>
           <% end %>
+        </div>
+
+        <%= simple_form_for([@meetup, @meetup.chatroom, @meetup.chatroom.messages.new], html: { class: "d-flex", data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, }) do |f| %>
+          <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}", wrapper_html: { class: "flex-grow-1" } %>
+          <%= f.submit "Send", class: "btn btn-custom btn-primary mb-3" %>
+        <% end %>
       </div>
+    </div>
 
-      <%= simple_form_for([@meetup, @meetup.chatroom, @meetup.chatroom.messages.new], html: { class: "d-flex", data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, }) do |f| %>
-        <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}", wrapper_html: { class: "flex-grow-1" } %>
-        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-      <% end %>
+    <!-- Empty space column (3 columns wide) on the right -->
+    <div class="col-md-2"></div>
+  </div>
 </div>
-

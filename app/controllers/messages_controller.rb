@@ -5,9 +5,7 @@ class MessagesController < ApplicationController
     @chatroom = @meetup.chatroom
     @message = @chatroom.messages.new(message_params)
     @message.user = current_user
-    # @message = @chatroom.messages.new(message_params)
-    @message.user = current_user # Assuming you have user authentication
-
+    
     @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
@@ -20,7 +18,7 @@ class MessagesController < ApplicationController
   end
 
   private
-  
+
   def message_params
     params.require(:message).permit(:content)
   end
