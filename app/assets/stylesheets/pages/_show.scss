@@ -12,6 +12,7 @@
   // min-height: 75vh;
 }
 
+// Main card for map
 [data-controller="map"] {
   border-radius: 32px;
   position: relative;
@@ -111,8 +112,6 @@ p {
   color: white;
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   position: relative;
-  ////// height can be automatic by changing column value to flex
-  // height: 360px;
 }
 
 .meetup-ppl-going h2 {
@@ -134,11 +133,10 @@ p {
   justify-content: center;
 }
 
-// .meetup-ppl-going-members-avatar p {
-//   margin-bottom: 0;
-//   padding-left: 0.6em;
-//   padding-right: 0.6em;
-// }
+.avatar-large {
+  border: 2px solid #a0e7cf;
+}
+
 
 /////////////////////////
 /// SECOND HALF OF PAGE

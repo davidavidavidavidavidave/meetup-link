@@ -34,7 +34,7 @@
         </div>
       <% else %>
         <div class="meetup-buttons-to-join">
-        <%# <p class="text-center">Fancy joining this meetup?</p> %>
+          <%# <p class="text-center">Fancy joining this meetup?</p> %>
           <%# <div class="justify-content-center text-center"> %>
           <%= button_to "Join Meetup", meetup_user_meetups_path(@meetup), class: "btn btn-primary-join" %>
         </div>
@@ -62,17 +62,16 @@
       <div class="meetup-ppl-going-inner">
         <h2>Who's going?</h2>
         <div class="meetup-ppl-going-members">
-              <% @meetup.users.each do |user| %>
-                <div class="meetup-ppl-going-members-avatar">
-                    <% image_filename = "#{user.username}.png" %>
-                  <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
-                    <%= image_tag image_filename, alt: "Avatar", class: "avatar-large" %>
-                  <% else %>
-                    <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png", alt: "Default Avatar", class: "avatar-large" %>
-                  <% end %>
-                  <%# <p><%= user.username %>
-                </div>
-              <% end %>
+          <% @meetup.users.each do |user| %>
+            <div class="meetup-ppl-going-members-avatar">
+              <% image_filename = "#{user.username}.png" %>
+                <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
+                  <%= image_tag image_filename, alt: "Avatar", class: "avatar-large" %>
+                <% else %>
+                  <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png", alt: "Default Avatar", class: "avatar-large" %>
+                <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
