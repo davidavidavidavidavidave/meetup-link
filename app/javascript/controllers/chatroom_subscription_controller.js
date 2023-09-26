@@ -5,24 +5,45 @@ import { createConsumer } from "@rails/actioncable"
 export default class extends Controller {
   static targets = ["messages"]
   static values = {
-    chatroomId: Number
+    chatroomId: Number,
+    currentUserId: Number, // Define a value for current user ID
   }
+
   connect() {
     console.log(`connecting to ActionCable channel with id ${this.chatroomIdValue}`)
+    console.log(`Current User ID: ${this.currentUserIdValue}`)
 
     createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
-      { received: data => {this.#insertMessage(data)} }
-      )
+      { received: data => { this.insertMessage(data) } }
+    );
   }
 
   resetForm(event) {
     event.target.reset()
   }
 
-  // private
-  #insertMessage(data) {
-    this.messagesTarget.insertAdjacentHTML("beforeend", data)
-  this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+  insertMessage(data) {
+    // Parse the received data as HTML
+    const parser = new DOMParser();
+    const message = parser.parseFromString(data, 'text/html').body.firstChild;
+
+    // Add a class to the message based on user ID
+    if (message.classList.contains('msg')) {
+      const userId = message.getAttribute('data-user-id');
+      message.classList.add(userId == this.currentUser ? 'left-msg' : 'right-msg');
+    }
+
+    // Append the modified message to the messages container
+    this.messagesTarget.appendChild(message);
+
+    // Scroll to the bottom of the container
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
+  }
+
+  get currentUser() {
+    // You should implement a way to get the current user's ID here
+    // This is just a placeholder, and you should replace it with your logic
+    return parseInt(this.element.getAttribute('data-current-user-id'));
   }
 }
