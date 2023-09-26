@@ -1,24 +1,24 @@
 <div class="msg" data-user-id="<%= message.user_id %>">
   <div class="<%= message.user_id == current_user.id ? 'msg left-msg' : 'msg right-msg' %>">
-    <% image_filename = "#{message.user.username}.png" %>
+    <div class="message-container">
+      <% image_filename = "#{message.user.username}.png" %>
         <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
         <div id="avatar"><%= image_tag "#{message.user.username}.png", class: "msg-img" %>
-           <small>
-            <strong><%= message.user.username %></strong>
-            <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-            </small>
-            </div>
+        </div>
         <% else %>
-          <div id="avatar"><%= image_tag "color_stripes.png", class: "msg-img" %>
-             <small>
+        <div id="avatar"><%= image_tag "color_stripes.png", class: "msg-img" %>
+        </div>
+        <% end %>
+      <div class="msg-content">
+        <div class="msg-bubble">
+            <p><%= message.content %></p>
+            <small class="message-details">
             <strong><%= message.user.username %></strong>
             <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
             </small>
-            </div>
-        <% end %>
-        <%# <div class="msg-bubble"> %>
-            <p><%= message.content %></p>
-        <%# </div> %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <%#

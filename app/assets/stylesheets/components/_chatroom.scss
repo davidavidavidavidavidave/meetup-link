@@ -1,11 +1,13 @@
 .chatroom {
-  background: white;
+  background: linear-gradient(to bottom, rgb(7, 1, 35), #2f3d73);
   margin-top: 9px;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  padding-top: 48px;
+
 
   h1 {
     border-bottom: 1px solid $gray-200;
@@ -14,7 +16,10 @@
   }
 
   p {
-    color: black;
+    color: white;
+    font-size: 24px;
+    margin-right: 8px;
+
   }
   .messages {
     height: 100%;
@@ -32,6 +37,30 @@
   }
 }
 
+.message-details {
+  /* Add your styles here */
+  font-size: 16px;
+  color: #888;
+}
+
+.message-details strong {
+  font-weight: bold;
+}
+
+.message-details i {
+  font-style: italic;
+}
+
+// .message-container {
+//   display: flex;
+//   align-items: flex-start;
+//   margin-bottom: 16px;
+// }
+.msg {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
 
 .msg-img {
   width: 50px;
@@ -43,26 +72,41 @@
   background-size: cover;
   border-radius: 50%;
 }
-// .msg-bubble {
+
+// .msg-content {
+//   display: flex; /* Use flexbox to arrange msg-img and msg-bubble horizontally */
+//   align-items: flex-start; /* Align items to the top of the container */
+//   flex-grow: 1; /* Allow msg-bubble to grow and take up available space */
+// }
+
+.msg-bubble {
+  // max-width: 450px;
+  padding: 15px;
+  border-radius: 15px;
+  background: transparent;
+  border: 1px solid #84fab0;
+}
+.right-msg .msg-bubble {
+  border-bottom-left-radius: 0;
+}
+
+.right-msg {
+  display: flex;
+  flex-direction: row-reverse;
+}
+// .left-msg .msg-bubble {
 //   max-width: 450px;
 //   padding: 15px;
 //   border-radius: 15px;
-//   background: var(--left-msg-bg);
+//   background: transparent; /* Set the background to transparent */
+//   border: 1px solid #faf884; /* Add a border */
+//   margin: 16px;
 // }
+  .right-msg .msg-img {
+    margin: 0 0 0 10px;
+  }
 
-// .left-msg .msg-bubble {
-//   border-bottom-left-radius: 0;
-// }
-
-// .right-msg {
-//   display: flex;
-//   flex-direction: row-reverse;
-// }
-// .right-msg .msg-bubble {
-//   background: var(--right-msg-bg);
-//   color: black;
-//   border-bottom-right-radius: 0;
-// }
-// .right-msg .msg-img {
-//   margin: 0 0 0 10px;
-// }
+  .btn-custom {
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    width: 100px;/* You can add more styles like border, text color, etc., here */
+  }
