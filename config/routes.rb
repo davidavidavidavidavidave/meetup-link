@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'meetups/index'
   get 'meetups/create'
   get 'meetups/update'
+  get "meetups/:id/booking_confirmation", to: "bookings#booking_confirmation", as: :booking_confirmation_meetup
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
 
     member do
       post 'create_chatroom'
+      get 'confirmation' # Custom route for the confirmation page
     end
   end
   post "/join_meetup", to: "meetups#join", as: :join_meetup

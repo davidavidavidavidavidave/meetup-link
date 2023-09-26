@@ -181,6 +181,9 @@ p {
   // padding-left: 24px;
 }
 
+.confirm-suggested {
+  display: flex;
+}
 .card-suggested-places {
   overflow: hidden;
   flex-grow: 0.5;
@@ -357,6 +360,24 @@ p {
   transform: rotateX(45deg);
 }
 
+// // suggested-confirm button
+// .btn.btn-success-confirm {
+//   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+//   width: 100px;
+//   font-size: 24px;
+//   border-radius: 32px;
+// }
+
+// // Chat button hover
+// .btn.btn-success-confirm:hover {
+//   transform: scale(1.08);
+//   transition: 0.2s ease;
+// }
+
+// // Chat button clicked
+// .btn.btn-success-confirm:active {
+//   filter: hue-rotate(120deg);
+// }
 // border styling to see in development, delete for prod
 
 // .container-show-main {
