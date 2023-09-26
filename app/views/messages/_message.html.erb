@@ -11,11 +11,11 @@
         <% end %>
       <div class="msg-content">
         <div class="msg-bubble">
-            <p><%= message.content %></p>
             <small class="message-details">
-            <strong><%= message.user.username %></strong>
+            <strong><%= message.user.username %>: </strong>
             <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
             </small>
+            <p><%= message.content %></p>
         </div>
       </div>
     </div>
