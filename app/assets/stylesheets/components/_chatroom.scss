@@ -28,6 +28,7 @@
     font-size: 24px;
     margin-right: 8px;
   }
+
   .messages {
     height: 100%;
     overflow: scroll;
@@ -44,6 +45,10 @@
       margin-bottom: 0;
     }
   }
+}
+
+.row {
+  padding-top: 72px;
 }
 
 .message-details {
@@ -89,6 +94,7 @@
   background: transparent;
   border: 1px solid #84fab0;
 }
+
 .right-msg .msg-bubble {
   border-bottom-left-radius: 0;
 }
@@ -108,5 +114,6 @@
 
 .btn-custom {
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  width: 100px; /* You can add more styles like border, text color, etc., here */
+  width: 100px;
+  /* You can add more styles like border, text color, etc., here */
 }
