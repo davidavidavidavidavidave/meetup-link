@@ -1,15 +1,21 @@
 .map-card-centre {
   background: linear-gradient(to bottom, rgb(50, 138, 71), #0c4c05);
-  padding: 16px;
   border-radius: 4px;
-  // box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
-  // border: 4px solid rgb(218, 22, 228);
+  padding: 1.2em;
+  border-radius: 32px;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.441);
 }
 
 .map-card-centre h2 {
-  // padding: 4px;
-  font-size: 40px;
+  font-family: Dongle;
+  font-size: 54px;
+  line-height: 0.8;
   text-align: center;
   color: linear-gradient(to bottom, rgb(17, 5, 83), #374685);
-  // border: 4px solid white;
+  margin-bottom: 0px;
+}
+
+#centre {
+  font-size: 1.1em;
+  margin-bottom: 4px;
 }
