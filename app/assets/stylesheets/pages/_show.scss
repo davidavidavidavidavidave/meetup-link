@@ -42,7 +42,7 @@ p {
   font-style: normal;
 }
 
-// This is the meetup card structure
+// This is the meetup card structure - THIS IS THE MEETUP
 .card-meetup-info-inner {
   background: #0f1440;
   position: relative;
@@ -67,8 +67,8 @@ p {
 }
 
 .card-meetup-info-inner-content {
-  // padding-top: 4px;
-  // padding-bottom: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   margin-bottom: 4px;
 }
 
@@ -112,7 +112,7 @@ p {
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   position: relative;
   ////// height can be automatic by changing column value to flex
-  height: 360px;
+  // height: 360px;
 }
 
 .meetup-ppl-going h2 {
@@ -125,22 +125,20 @@ p {
   overflow: hidden;
   flex-grow: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-right: 10px;
-  margin-top: 2px;
-  border: 2px solid rgb(201, 148, 34);
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .meetup-ppl-going-members-avatar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 2px solid rgb(150, 230, 46);
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-top: 4px;
+  justify-content: center;
 }
+
+// .meetup-ppl-going-members-avatar p {
+//   margin-bottom: 0;
+//   padding-left: 0.6em;
+//   padding-right: 0.6em;
+// }
 
 /////////////////////////
 /// SECOND HALF OF PAGE
@@ -194,8 +192,6 @@ p {
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   position: relative;
 }
-
-
 
 .cards {
   // flex-grow: 1;
@@ -364,10 +360,6 @@ p {
 // }
 
 .col-sm-4 {
-  // border: 4px solid rgb(22, 135, 146);
-  height: 672px;
-  ////// Uncommenting these will make info cards fill column
-  // flex-direction: column;
-  // display: flex;
-  padding-bottom: 2px;
+  flex-direction: column;
+  display: flex;
 }
