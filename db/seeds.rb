@@ -59,7 +59,7 @@ puts "Generating meetup....."
 meetup_1 = Meetup.create!(
   id: 1,
   user_id: User.first.id,
-  name: "Dave_Tom_Raf_Work_Party",
+  name: "Remote workers lunch",
   location: "TBC",
   event_date: Date.new(2023, 9, 30),
   purpose: "Munch!",
