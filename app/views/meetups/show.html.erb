@@ -68,7 +68,7 @@
                 <% if File.exist?(Rails.root.join('app', 'assets', 'images', image_filename)) %>
                   <%= image_tag image_filename, alt: "Avatar", class: "avatar-large" %>
                 <% else %>
-                  <%= image_tag "MEETUP_8ee3775c-1795-4273-a768-9fb16f09dcac-1.png", alt: "Default Avatar", class: "avatar-large" %>
+                  <%= image_tag "MeetupLinkAvatar2.png", alt: "Default Avatar", class: "avatar-large" %>
                 <% end %>
             </div>
           <% end %>
@@ -116,7 +116,6 @@
         <div class="card-suggested-places-inner">
           <div class="confirm-suggested"><h1>SUGGESTED PLACES</h1>
           <%= link_to "Confirmation Page", confirmation_meetup_path(@meetup), class: "btn btn-success-confirm" %></div>
-
           <ol>
             <% @suggested_places.each_with_index do |suggested_place, index| %>
               <div class="suggested-list">
