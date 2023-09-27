@@ -13,7 +13,7 @@
           <%= render "messages/message", message: message %>
           <% end %>
         </div>
-
+        
         <%= simple_form_for([@meetup, @meetup.chatroom, @meetup.chatroom.messages.new], html: { class: "d-flex", data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, }) do |f| %>
           <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}", wrapper_html: { class: "flex-grow-1" } %>
           <%= f.submit "Send", class: "btn btn-custom btn-primary mb-3" %>
