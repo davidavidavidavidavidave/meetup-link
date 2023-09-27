@@ -1,0 +1,63 @@
+.booking-confirmation-card {
+  // margin-top: 128px;
+  // border: 0.5px solid rgb(0, 0, 0.5);
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+}
+
+.booking-header {
+  text-align: left;
+  margin-top: 64px;
+  margin-bottom: 32px;
+  padding: 24px;
+}
+
+.meetup-logo {
+  text-align: center;
+  border-radius: 50%;
+  padding: 28px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  width: 240px;
+  height: 240px;
+  // object-fit: cover;
+}
+
+.text-container {
+  // max-width: 800px !important;
+  line-height: 1.5;
+  height: auto;
+  min-height: 1000px;
+  // width: 1200px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.btn.btn-primary-view {
+  background: #68da90;
+  font-size: 24px;
+  border-radius: 32px;
+  align-items: center;
+  width: 260px;
+}
+
+// Join meetup hover styling
+.btn.btn-primary-view:hover {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  transform: scale(1.08);
+  transition: 0.2s ease;
+}
+
+// Join meetup clicked colour change
+.btn.btn-primary-view:active {
+  filter: hue-rotate(120deg);
+  transform: rotateX(45deg);
+}
+
+.link-buttons {
+  display: flex;
+  padding: 6px;
+  justify-content: space-between;
+}

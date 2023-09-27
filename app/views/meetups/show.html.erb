@@ -114,7 +114,9 @@
     <% if @meetup.users.include?(current_user) %>
       <div class="card-suggested-places">
         <div class="card-suggested-places-inner">
-          <h1>SUGGESTED PLACES</h1>
+          <div class="confirm-suggested"><h1>SUGGESTED PLACES</h1>
+          <%= link_to "Confirmation Page", confirmation_meetup_path(@meetup), class: "btn btn-success-confirm" %></div>
+
           <ol>
             <% @suggested_places.each_with_index do |suggested_place, index| %>
               <div class="suggested-list">

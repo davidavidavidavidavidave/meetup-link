@@ -54,6 +54,11 @@ class MeetupsController < ApplicationController
     redirect_to meetup_chatroom_path(@meetup, @chatroom)
   end
 
+  def confirmation
+    @meetup = Meetup.find(params[:id])
+    # You can add any confirmation-related information or logic here
+    render 'confirmation'
+  end
 
   def edit
     @meetup = Meetup.find(params[:id])
