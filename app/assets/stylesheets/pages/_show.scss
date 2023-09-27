@@ -12,6 +12,7 @@
   // min-height: 75vh;
 }
 
+// Main card for map
 [data-controller="map"] {
   border-radius: 32px;
   position: relative;
@@ -28,12 +29,18 @@
   // border: 4px solid rgb(218, 22, 228);
   margin-right: 4px;
   margin-left: auto;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  padding: 5px;
+  // box-shadow: 0 0 10px rgba(237, 232, 232, 0.689);
+  box-shadow: 8px 8px 16px rgba(1, 1, 1, 0.461);
+  padding: 3px;
   box-sizing: border-box;
   position: relative;
   border-radius: 32px;
 }
+
+// .card-trip-map:hover {
+//   box-shadow: 0 0 10px rgba(237, 232, 232, 0.689);
+//   transition: 0.6s ease;
+// }
 
 p {
   color: white;
@@ -42,7 +49,7 @@ p {
   font-style: normal;
 }
 
-// This is the meetup card structure
+// This is the meetup card structure - THIS IS THE MEETUP
 .card-meetup-info-inner {
   background: #0f1440;
   position: relative;
@@ -57,9 +64,9 @@ p {
   flex-grow: 0.5;
   display: grid;
   margin-right: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 8px 16px rgba(1, 1, 1, 0.461);
   border-radius: 32px;
-  padding: 4px;
+  padding: 2px;
   box-sizing: border-box;
   color: white;
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
@@ -67,8 +74,8 @@ p {
 }
 
 .card-meetup-info-inner-content {
-  // padding-top: 4px;
-  // padding-bottom: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   margin-bottom: 4px;
 }
 
@@ -104,15 +111,13 @@ p {
   flex-grow: 1;
   display: grid;
   margin-right: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 8px 16px rgba(1, 1, 1, 0.461);
   border-radius: 32px;
-  padding: 4px;
+  padding: 2px;
   box-sizing: border-box;
   color: white;
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   position: relative;
-  ////// height can be automatic by changing column value to flex
-  height: 360px;
 }
 
 .meetup-ppl-going h2 {
@@ -125,26 +130,24 @@ p {
   overflow: hidden;
   flex-grow: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-right: 10px;
-  margin-top: 2px;
-  border: 2px solid rgb(201, 148, 34);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .meetup-ppl-going-members-avatar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 2px solid rgb(150, 230, 46);
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-top: 4px;
+  justify-content: center;
+  margin-bottom: 1em;
 }
 
-/////////////////////////
+.avatar-large {
+  border: 2px solid #a0e7cf;
+}
+
+///////////////////////////////////
+///////////////////////////////////
 /// SECOND HALF OF PAGE
-/////////////////////////
+///////////////////////////////////
+///////////////////////////////////
 
 .container-show-second {
   display: flex;
@@ -165,10 +168,17 @@ p {
   border-radius: 30px;
 }
 
+.suggested-list {
+  display: flex;
+  justify-content: space-between;
+  // border: 2px solid rgb(221, 254, 0);
+}
+
 .card-suggested-places-inner h1 {
   font-size: 3.5em;
-  padding-top: 16px;
+  padding-top: 8px;
   padding-left: 16px;
+  margin-bottom: 0px;
 }
 
 .card-suggested-places-inner li {
@@ -176,7 +186,8 @@ p {
   font-family: 'Raleway';
   font-weight: 300;
   font-style: normal;
-  line-height: 1.6;
+  line-height: 2;
+  // border: 2px solid rgb(13, 229, 96);
   // padding-top: 16px;
   // padding-left: 24px;
 }
@@ -189,16 +200,14 @@ p {
   flex-grow: 0.5;
   display: grid;
   margin-right: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 8px 16px rgba(1, 1, 1, 0.461);
   border-radius: 32px;
-  padding: 4px;
+  padding: 2px;
   box-sizing: border-box;
   color: white;
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   position: relative;
 }
-
-
 
 .cards {
   // flex-grow: 1;
@@ -284,18 +293,29 @@ p {
   /* Take up the full width of the container */
 }
 
+.btn.btn-confirm {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  // border: 2px solid rgb(218, 22, 228);
+  margin-right: 264px;
+  width: 128px;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+  border-radius: 32px;
+  font-size: 1.6em;
+}
+
 // Container for the edit meetup button
 .container-edit-button {
   // border: 4px solid rgb(221, 27, 53);
   display: flex;
   justify-content: center;
-  // flex-direction: row;
+  margin-top: 32px;
 }
 
 // Button to edit the meetup
 .btn.btn-primary.meetup-info {
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  width: 100px;
+  width: 220px;
   // font-size: 24px;
   border-radius: 32px;
 }
@@ -385,10 +405,6 @@ p {
 // }
 
 .col-sm-4 {
-  // border: 4px solid rgb(22, 135, 146);
-  height: 672px;
-  ////// Uncommenting these will make info cards fill column
-  // flex-direction: column;
-  // display: flex;
-  padding-bottom: 2px;
+  flex-direction: column;
+  display: flex;
 }
