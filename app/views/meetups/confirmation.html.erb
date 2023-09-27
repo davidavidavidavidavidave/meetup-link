@@ -1,12 +1,30 @@
-<div class="text-container">
-  <div class="booking-confirmation-card">
-    <div class="booking-header">
-      <h1>Your Meetup is confirmed!</h1>
-      <%= image_tag 'Transparent_logo.png' %>
-      <br>
-      <div class="link-buttons">
-        <%= link_to "Home", root_path, class: "btn btn-primary-view" %>
-        <%= link_to "View meetups", meetups_path, class: "btn btn-primary-view"%></a>
+<div class="container-confirmation">
+
+
+  <div class="text-container">
+    <div class="booking-confirmation-card">
+      <div class="booking-confirmation-card-inner">
+        <h1>Your Meetup is confirmed!</h1>
+        <div class="confirm-tick">
+          <svg width="465" height="465" viewBox="0 0 465 465" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path id="tick" d="M67.9524 244.767L170.249 350.232C170.563 350.555 171.082 350.551 171.391 350.224L376.899 132.744" stroke="url(#paint0_linear_0_1)" stroke-width="25.6797" stroke-linecap="round" class="svg-elem-1"></path>
+          <circle id="circle" cx="232.5" cy="232.5" r="221.636" stroke="url(#paint1_linear_0_1)" stroke-width="21.729" class="svg-elem-2"></circle>
+          <defs>
+          <linearGradient id="paint0_linear_0_1" x1="239.184" y1="116.007" x2="163.194" y2="326.194" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#84FAB0"></stop>
+          <stop offset="1" stop-color="#8FD3F4"></stop>
+          </linearGradient>
+          <linearGradient id="paint1_linear_0_1" x1="407.715" y1="74.2736" x2="43.458" y2="366.627" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#8FD3F4"></stop>
+          <stop offset="1" stop-color="#84FAB0"></stop>
+          </linearGradient>
+          </defs>
+          </svg>
+        </div>
+        <div class="link-buttons">
+          <%= link_to "Home", root_path, class: "btn btn-primary-view" %>
+          <%= link_to "View meetups", meetups_path, class: "btn btn-primary-view"%></a>
+        </div>
       </div>
     </div>
   </div>
