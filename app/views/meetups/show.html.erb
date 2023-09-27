@@ -115,17 +115,17 @@
       <div class="card-suggested-places">
         <div class="card-suggested-places-inner">
           <div class="confirm-suggested"><h1>SUGGESTED PLACES</h1>
-          <%= link_to "Confirmation Page", confirmation_meetup_path(@meetup), class: "btn btn-success-confirm" %></div>
-          <ol>
-            <% @suggested_places.each_with_index do |suggested_place, index| %>
-              <div class="suggested-list">
-                <li>
-                  <%= suggested_place %>
-                </li>
-                <%= link_to "Option #{index + 1}", meetup_chatroom_path(@meetup), method: :post, class: "btn btn-confirm" %>
-              </div>
-            <% end %>
-          </ol>
+            <ol>
+              <% @suggested_places.each_with_index do |suggested_place, index| %>
+                <div class="suggested-list">
+                  <li>
+                    <%= suggested_place %>
+                  </li>
+                  <%= link_to "Option #{index + 1}", confirmation_meetup_path(@meetup), method: :post, class: "btn btn-confirm" %>
+                </div>
+              <% end %>
+            </ol>
+          </div>
         </div>
       </div>
     <% end %>
