@@ -1,14 +1,22 @@
-<ul>
-  <% @meetups.each do |meetup| %>
-    <li>
-      <strong>Name:</strong> <%= meetup.name %><br>
-      <strong>Event Date:</strong> <%= meetup.event_date %><br>
-      <strong>Purpose:</strong> <%= meetup.purpose %><br>
-      <strong>Location:</strong> <%= meetup.location %><br>
-      <!-- Add any other meetup attributes you want to display -->
+<div class="container-show-main">
+  <div class="col-sm-4">
 
-      <!-- Add "View this Meetup" button -->
-      <%= link_to "View this Meetup", meetup_path(meetup), class: "btn btn-primary" %>
-    </li>
+              <% @meetups.each do |meetup| %>
+    <div class="card-meetup-info">
+      <div class="card-meetup-info-inner">
+        <div class="card-meetup-info-inner-content">
+          <br>
+          <p>Name: <%= meetup.name %></p><br>
+          <p>Event Date: <%= meetup.event_date %></p><br>
+          <!-- Add any other meetup attributes you want to display -->
+
+          <!-- Add "View this Meetup" button -->
+          <%= link_to "View this Meetup", meetup_path(meetup), class: "btn btn-primary-confview" %>
+            <%= render "meetups/share_passcode" %>
+        </div>
+      </div>
+    </div>
+    <br>
   <% end %>
-</ul>
+</div>
+<%# </div> %>
