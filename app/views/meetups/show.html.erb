@@ -7,19 +7,21 @@
             <%# <ul> %>
               <p>Name: <%= @meetup.name %></p>
               <p>Event Date: <%= @meetup.event_date %></p>
-              <p>Centre: <%= @centre_address %></p>
+              <h3><span class="yellow-text">Centre: <%= @centre_address %></span></h3>
               <%# <p>Location: <%= @meetup.location</p> %>
 <br>
               <!-- icons -->
               <h4><div style="display:flex"><a class="btn btn-primary-view" style="margin: 20px" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Passcode: <%= @meetup.passcode %></a>
               <% @meetup.id %><% @meetup.user_id %></div></h4>
-              <%= render "meetups/share_passcode" %>
+              <div class="d-flex justify-content-center text-center">
+            <%= render "meetups/share_passcode" %>
+          </div>
             <%# </ul> %>
-            <div class="container-edit-button">
+            <%# <div class="container-edit-button">
               <% if current_user == @meetup.user %>
-                <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary meetup-info" %>
-              <% end %>
-            </div>
+                <%# <%= link_to "Edit Meetup", edit_meetup_path(@meetup), class: "btn btn-primary meetup-info" %>
+              <%# <% end %> 
+            <%# </div> %>
         </div>
       </div>
     </div>

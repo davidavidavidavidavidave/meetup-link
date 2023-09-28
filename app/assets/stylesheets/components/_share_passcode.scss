@@ -54,26 +54,57 @@
   margin-top: 15px;
 }
 
+@keyframes toggleHover {
+  0% {
+    background: #68da90; /* Initial background color */
+    transform: scale(1);
+  }
+  50% {
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); /* Hover background color */
+    transform: scale(1.08); /* Apply hover effect */
+  }
+  100% {
+    background: #68da90; /* Back to initial background color */
+    transform: scale(1);
+  }
+}
+
+/* Apply the toggleHover animation to the button */
 .btn.btn-primary-view {
-  background: #68da90;
+  background: #68da90; /* Initial background color */
   font-size: 24px;
   border-radius: 32px;
   align-items: center;
   width: 260px;
+  animation: toggleHover 2s infinite;
 }
 
-// Join meetup hover styling
-.btn.btn-primary-view:hover {
-  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  transform: scale(1.08);
-  transition: 0.2s ease;
-}
-
-// Join meetup clicked colour change
+/* Join meetup clicked color change */
 .btn.btn-primary-view:active {
   filter: hue-rotate(120deg);
   transform: rotateX(45deg);
 }
+// .btn.btn-primary-view {
+//   background: #68da90;
+//   font-size: 24px;
+//   border-radius: 32px;
+//   align-items: center;
+//   width: 260px;
+// }
+
+// // Join meetup hover styling
+// .btn.btn-primary-view:hover {
+//   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+//   transform: scale(1.08);
+//   transition: 0.2s ease;
+// }
+
+// // Join meetup clicked colour change
+// .btn.btn-primary-view:active {
+//   filter: hue-rotate(120deg);
+//   transform: rotateX(45deg);
+// }
+
 // .icon-spacing {
 //   display: flex;
 //   justify-content: space-between;

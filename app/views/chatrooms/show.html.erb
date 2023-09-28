@@ -1,8 +1,10 @@
 <div class="container">
   <div class="rows">
     <!-- Empty space column (3 columns wide) on the left -->
-    <div class="col-md-2"></div>
-
+    <div class="col-md-2">
+    <br>
+          <%= link_to "Back to Meetup", meetup_path(@meetup), class: "btn btn-primary-back" %>
+    </div>
     <!-- Chatroom container column (6 columns wide) in the center -->
     <div class="col-md-8">
       <div class="chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-current-user-id="<%= current_user.id %>">
