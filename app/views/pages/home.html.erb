@@ -10,15 +10,14 @@
   </svg>x
 
   <div class="wrapper">
-    <h2>Meetuplink</h2>
-      <div style= "text-align: center;" >
+    <h2>midl</h2>
+    <h1><span data-controller="typed-js"></span></h1>
+      <div style= "text-align:center; display:flex" >
         <%= link_to "Create Meetup", new_meetup_path, :class => "button" %>
         <!-- Input field for passcode -->
           <%= form_with(url: join_meetup_path, method: :post, remote: true) do |form| %>
+          <%= form.text_field :passcode, placeholder: "Enter meetuplink →", id: "passcode-input", style: "text-align: center;" %>
           <%= form.submit "Join Meetup", class: "button" %>
-          <div>
-            <%= form.text_field :passcode, placeholder: "Enter Passcode", id: "passcode-input" %>
-          </div>
         </div>
         <% end %>
     </div>

@@ -243,7 +243,7 @@ $outline-color_1: var(--color);
 
 h1 {
   font-size: 55px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   text-align: left;
   letter-spacing: 4px;
   margin: 0;
@@ -258,11 +258,11 @@ h1 {
 
 h2 {
   font-size: 105px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   text-align: center;
   letter-spacing: 4px;
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 2px;
   z-index: 9999;
 
 
