@@ -324,7 +324,7 @@ p {
 // Button To Leave The Meetup
 .btn.btn-info-joined {
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  width: 100px;
+  width: 160px;
   font-size: 24px;
   border-radius: 32px;
 }
@@ -343,7 +343,7 @@ p {
 // Chat button
 .btn.btn-success-joined {
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  width: 100px;
+  width: 160px;
   font-size: 24px;
   border-radius: 32px;
 }
@@ -410,3 +410,6 @@ p {
   display: flex;
 }
 
+.yellow-text {
+  color:  #68da90
+}

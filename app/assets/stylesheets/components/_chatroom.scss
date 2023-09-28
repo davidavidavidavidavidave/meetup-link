@@ -129,3 +129,24 @@
   width: 100px;
   /* You can add more styles like border, text color, etc., here */
 }
+
+.btn.btn-primary-back {
+  background: #68da90;
+  font-size: 24px;
+  border-radius: 32px;
+  align-items: center;
+  width: 160px;
+}
+
+// Join meetup hover styling
+.btn.btn-primary-back:hover {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  transform: scale(1.08);
+  transition: 0.2s ease;
+}
+
+// Join meetup clicked colour change
+.btn.btn-primary-back:active {
+  filter: hue-rotate(120deg);
+  transform: rotateX(45deg);
+}
