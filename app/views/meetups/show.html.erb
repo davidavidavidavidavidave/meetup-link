@@ -8,9 +8,12 @@
               <p>Name: <%= @meetup.name %></p>
               <p>Event Date: <%= @meetup.event_date %></p>
               <p>Centre: <%= @centre_address %></p>
-              <p>Location: <%= @meetup.location %></p>
-              <p>Passcode: <%= @meetup.passcode %> <a href="#" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Share</a></p>
-              <% @meetup.id %><% @meetup.user_id %></p>
+              <%# <p>Location: <%= @meetup.location</p> %>
+<br>
+              <!-- icons -->
+              <h4><div style="display:flex"><a class="btn btn-primary-view" style="margin: 20px" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Passcode: <%= @meetup.passcode %></a>
+              <% @meetup.id %><% @meetup.user_id %></div></h4>
+              <%= render "meetups/share_passcode" %>
             <%# </ul> %>
             <div class="container-edit-button">
               <% if current_user == @meetup.user %>
