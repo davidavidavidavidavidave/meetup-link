@@ -192,9 +192,9 @@ p {
   // padding-left: 24px;
 }
 
-.confirm-suggested {
-  // display: flex;
-}
+// .confirm-suggested {
+//   // display: flex;
+// }
 
 .card-suggested-places {
   overflow: hidden;
@@ -296,13 +296,14 @@ p {
 
 .btn.btn-confirm {
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  // border: 2px solid rgb(218, 22, 228);
-  margin-right: 264px;
+  margin-right: 80px;
   width: 128px;
   margin-top: 0.1em;
   margin-bottom: 0.1em;
   border-radius: 32px;
   font-size: 1.6em;
+  height: 48px;
+  margin-left: 16px;
 }
 
 // Container for the edit meetup button
@@ -411,6 +412,6 @@ p {
 }
 
 .yellow-text {
-  color:  #68da90;
+  color: #68da90;
   font-size: 64px;
 }
