@@ -1,5 +1,6 @@
 // Specific CSS for your home-page
-html, body {
+html,
+body {
   font-family: 'Dongle', sans-serif;
   margin: 0;
   padding: 0;
@@ -20,19 +21,19 @@ html, body {
   color: white;
   opacity: 0.8;
   user-select: none;
-  text-shadow: 1px 1px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
 
 }
 
 :root {
   --color-bg1: rgb(0, 17, 82);
   --color-bg2: rgb(53, 61, 74);
-  --color1: 243,227,201;
-  --color2: 41,74,87;
-  --color3: 85,71,81;
-  --color4: 208,95,90;
-  --color5: 174,48,55;
-  --color-interactive: 15,196,181;
+  --color1: 243, 227, 201;
+  --color2: 41, 74, 87;
+  --color3: 85, 71, 81;
+  --color4: 208, 95, 90;
+  --color5: 174, 48, 55;
+  --color-interactive: 15, 196, 181;
   --circle-size: 80%;
   --blending: hard-light;
 }
@@ -41,9 +42,11 @@ html, body {
   0% {
     transform: rotate(0deg);
   }
+
   50% {
     transform: rotate(180deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -53,9 +56,11 @@ html, body {
   0% {
     transform: translateY(-50%);
   }
+
   50% {
     transform: translateY(50%);
   }
+
   100% {
     transform: translateY(-50%);
   }
@@ -65,9 +70,11 @@ html, body {
   0% {
     transform: translateX(-50%) translateY(-10%);
   }
+
   50% {
     transform: translateX(50%) translateY(10%);
   }
+
   100% {
     transform: translateX(-50%) translateY(-10%);
   }
@@ -89,7 +96,7 @@ html, body {
 
 
   .gradients-container {
-    filter: url(#goo) blur(40px) ;
+    filter: url(#goo) blur(40px);
     width: 100%;
     height: 100%;
   }
@@ -205,39 +212,41 @@ $color_2: #fff;
 $outline-color_1: var(--color);
 
 .button {
-	--b: 3px;
-	--s: .45em;
-	--color: #84fab0;
-	padding: 10px 65px;
-	color: $color_1;
-	--_p: var(--s);
-	background: conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
-	transition: .3s linear, color 0s, background-color 0s;
-	outline: var(--b) solid #0000;
-	outline-offset: .6em;
-	font-size: 20px;
-	border: 0;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
+  --b: 3px;
+  --s: .45em;
+  --color: #84fab0;
+  padding: 10px 65px;
+  color: $color_1;
+  --_p: var(--s);
+  background: conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 20px;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
   z-index: 9999;
   text-decoration: none;
   margin: 5px;
 
-	&:hover {
-		--_p: 0px;
-		color:white;
-		outline-offset: .05em;
-	}
-	&:focus-visible {
-		--_p: 0px;
-		outline-color: $outline-color_1;
-		outline-offset: .05em;
-	}
-	&:active {
-		background: var(--color);
-		color: $color_2;
-	}
+  &:hover {
+    --_p: 0px;
+    color: white;
+    outline-offset: .05em;
+  }
+
+  &:focus-visible {
+    --_p: 0px;
+    outline-color: $outline-color_1;
+    outline-offset: .05em;
+  }
+
+  &:active {
+    background: var(--color);
+    color: $color_2;
+  }
 }
 
 
@@ -273,11 +282,13 @@ h2 {
 }
 
 @media only screen and (max-width: 700px) {
-  h2 {font-size: 20px;}
+  h2 {
+    font-size: 20px;
+  }
 }
 
-.form-input{
-  color:#84fab0;
+.form-input {
+  color: #84fab0;
   position: relative;
   background-color: rgba(0, 0, 0, 0.5);
   font-size: 20px;
@@ -293,14 +304,14 @@ h2 {
   position: relative;
 }
 
-.form-submit{
+.form-submit {
   z-index: 9999;
   position: relative;
 }
 
 
 #passcode-input {
-  color:white;
+  color: white;
   position: relative;
   background-color: rgba(0, 0, 0, 0.5);
   font-size: 20px;
@@ -322,8 +333,8 @@ h2 {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
 }
 
-$green:#84fab0;
-$blue:#8FD3F4;
+$green: #84fab0;
+$blue: #8FD3F4;
 
 .card-category {
   background-size: cover;
@@ -335,7 +346,7 @@ $blue:#8FD3F4;
   color: white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
