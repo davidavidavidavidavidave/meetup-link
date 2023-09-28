@@ -48,6 +48,90 @@ user_4 = User.create!(
   address: "90 Roding Road E5 0DS, UK"
 )
 
+user_5 = User.create!(
+  username: "Andrew",
+  email: "User5@email.com",
+  password: "123456",
+  address: "3 Esmond Road, London, NW6 7HF"
+)
+
+user_6 = User.create!(
+  username: "Donesha",
+  email: "User6@email.com",
+  password: "123456",
+  address: "9 Hilldrop Crescent, London, N7 0HX"
+)
+
+user_7 = User.create!(
+  username: "Doug",
+  email: "User7@email.com",
+  password: "123456",
+  address: "1 Heathfield Road, London, SW18 3HX"
+)
+
+user_8 = User.create!(
+  username: "Dragos",
+  email: "User8@email.com",
+  password: "123456",
+  address: "6 Balfern Grove, London, W4 2JX"
+)
+
+user_9 = User.create!(
+  username: "Elizeu",
+  email: "User9@email.com",
+  password: "123456",
+  address: "10 Elgar Close, London, SE8 4AR"
+)
+
+user_10 = User.create!(
+  username: "Emily",
+  email: "User10@email.com",
+  password: "123456",
+  address: "Flaxman Lodge, Flaxman Terrace, London, WC1H 9AW"
+)
+
+user_11 = User.create!(
+  username: "Khashayar",
+  email: "User11@email.com",
+  password: "123456",
+  address: "Brodick House, Saxon Road, London, E3 5HJ"
+)
+
+user_12 = User.create!(
+  username: "Le Wagon",
+  email: "User12@email.com",
+  password: "123456",
+  address: "138 Kingsland Road, London, E2 8DY"
+)
+
+user_13 = User.create!(
+  username: "Marjan",
+  email: "User13@email.com",
+  password: "123456",
+  address: "21 Third Avenue, Walthamstow, London, E17 9QJ"
+)
+
+user_14 = User.create!(
+  username: "Meg",
+  email: "User14@email.com",
+  password: "123456",
+  address: "16 Hanley Road, London, N4 3DR"
+)
+
+user_15 = User.create!(
+  username: "Ryan",
+  email: "User15@email.com",
+  password: "123456",
+  address: "10 Relf Road, London, SE15 4JS"
+)
+
+user_16 = User.create!(
+  username: "Sinitta",
+  email: "User16@email.com",
+  password: "123456",
+  address: "37 Lavenham Road, London, SW18 5EZ"
+)
+
 puts "#{User.count} users created"
 
 puts "\n"
@@ -92,6 +176,21 @@ UserMeetup.create!(
 
 UserMeetup.create!(
   user_id: user_4.id,
+  meetup_id: meetup_1.id
+)
+
+UserMeetup.create!(
+  user_id: user_7.id,
+  meetup_id: meetup_1.id
+)
+
+UserMeetup.create!(
+  user_id: user_10.id,
+  meetup_id: meetup_1.id
+)
+
+UserMeetup.create!(
+  user_id: user_11.id,
   meetup_id: meetup_1.id
 )
 
