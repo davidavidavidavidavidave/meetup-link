@@ -17,7 +17,7 @@
         <%= link_to "Create Meetup", new_meetup_path, :class => "button" %>
         <!-- Input field for passcode -->
           <%= form_with(url: join_meetup_path, method: :post, remote: true) do |form| %>
-          <%= form.text_field :passcode, placeholder: "Enter meetuplink →", id: "passcode-input", style: "text-align: center;" %>
+          <%= form.text_field :passcode, placeholder: "Enter meetup link →", id: "passcode-input", style: "text-align: center;" %>
           <%= form.submit "Join Meetup", class: "button" %>
         </div>
         <% end %>
