@@ -10,6 +10,9 @@
 UserMeetup.destroy_all
 Meetup.destroy_all
 User.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
+
 puts "UserMeetups deleted"
 puts "Users deleted"
 puts "Meetups deleted"
@@ -28,8 +31,8 @@ user_1 = User.create!(
 )
 
 user_2 = User.create!(
-  username: "Cat",
-  email: "User2@email.com",
+  username: "Kat",
+  email: "cat@email.com",
   password: "123456",
   address: "77 Eaton Rise, London W5 2HE"
 )
@@ -64,7 +67,7 @@ user_6 = User.create!(
 
 user_7 = User.create!(
   username: "Doug",
-  email: "User7@email.com",
+  email: "dog@email.com",
   password: "123456",
   address: "1 Heathfield Road, London, SW18 3HX"
 )
@@ -73,14 +76,14 @@ user_8 = User.create!(
   username: "Dragos",
   email: "User8@email.com",
   password: "123456",
-  address: "6 Balfern Grove, London, W4 2JX"
+  address: "10 Elgar Close, London, SE8 4AR"
 )
 
 user_9 = User.create!(
   username: "Elizeu",
   email: "User9@email.com",
   password: "123456",
-  address: "10 Elgar Close, London, SE8 4AR"
+  address: "6 Balfern Grove, London, W4 2JX"
 )
 
 user_10 = User.create!(
@@ -132,6 +135,27 @@ user_16 = User.create!(
   address: "37 Lavenham Road, London, SW18 5EZ"
 )
 
+user_17 = User.create!(
+  username: "Priscilla",
+  email: "priscilla@email.com",
+  password: "123456",
+  address: "24 High Street Wimbledon, London SW19 5EA"
+)
+
+user_18 = User.create!(
+  username: "Khadija",
+  email: "Khadija@email.com",
+  password: "123456",
+  address: "90 Dartford Rd, Dartford DA1 3ER"
+)
+
+user_19 = User.create!(
+  username: "Anam",
+  email: "Anam@email.com",
+  password: "123456",
+  address: "685 High Rd, London N12 0DA"
+)
+
 puts "#{User.count} users created"
 
 puts "\n"
@@ -141,13 +165,12 @@ puts "\n"
 puts "Generating meetup....."
 
 meetup_1 = Meetup.create!(
-  id: 1,
   user_id: User.first.id,
   name: "Remote workers lunch",
   location: "TBC",
   event_date: Date.new(2023, 9, 30),
   purpose: "Munch!",
-  passcode: "£123456£",
+  passcode: "98521",
 )
 
 puts "#{Meetup.count} UserMeetups created"
@@ -165,7 +188,7 @@ UserMeetup.create!(
 )
 
 UserMeetup.create!(
-  user_id: user_2.id,
+  user_id: user_13.id,
   meetup_id: meetup_1.id
 )
 
@@ -180,7 +203,7 @@ UserMeetup.create!(
 )
 
 UserMeetup.create!(
-  user_id: user_7.id,
+  user_id: user_6.id,
   meetup_id: meetup_1.id
 )
 
@@ -191,6 +214,26 @@ UserMeetup.create!(
 
 UserMeetup.create!(
   user_id: user_11.id,
+  meetup_id: meetup_1.id
+)
+
+UserMeetup.create!(
+  user_id: user_15.id,
+  meetup_id: meetup_1.id
+)
+
+UserMeetup.create!(
+  user_id: user_16.id,
+  meetup_id: meetup_1.id
+)
+
+UserMeetup.create!(
+  user_id: user_9.id,
+  meetup_id: meetup_1.id
+)
+
+UserMeetup.create!(
+  user_id: user_8.id,
   meetup_id: meetup_1.id
 )
 
