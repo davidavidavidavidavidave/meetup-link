@@ -3,17 +3,19 @@
     <div class="card-meetup-info">
       <div class="card-meetup-info-inner">
         <div class="card-meetup-info-inner-content">
-          <h1>This is the meetup</h1>
-            <%# <ul> %>
+          <h1>THIS IS THE MEETUP</h1>
+            <div class="meetup-details">
               <p>Name: <%= @meetup.name %></p>
               <p>Event Date: <%= @meetup.event_date %></p>
-              <h2><%= image_tag "marker_centre_point_home.png", class: "centre-point-marker-home" %>midl</h2>
-
+            </div>
+            <div class="midl-logo">
+              <%= image_tag "marker_centre_point_home.png", class: "centre-point-marker-show" %>
+              <h2 style="font-size: 88px;">midl</h2>
+            </div>
               <p><%= @centre_address %></p>
               <%# <p>Location: <%= @meetup.location</p> %>
-<br>
               <!-- icons -->
-              <h4><div style="display:flex"><a class="btn btn-primary-view" style="margin: 20px" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Meetuplink: <%= @meetup.passcode %></a>
+              <h4><div style="display:flex;justify-content: center;"><a class="btn btn-primary-view" style="margin: 20px" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Meetuplink: <%= @meetup.passcode %></a>
               <% @meetup.id %><% @meetup.user_id %></div></h4>
               <div class="d-flex justify-content-center text-center">
             <%= render "meetups/share_passcode" %>
@@ -67,7 +69,7 @@
     <%# </div> %>
     <div class="meetup-ppl-going">
       <div class="meetup-ppl-going-inner">
-        <h2>Who's going?</h2>
+        <h2>WHO'S GOING?</h2>
         <div class="meetup-ppl-going-members">
           <% @meetup.users.each do |user| %>
             <div class="meetup-ppl-going-members-avatar">

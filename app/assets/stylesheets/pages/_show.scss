@@ -37,11 +37,6 @@
   border-radius: 32px;
 }
 
-// .card-trip-map:hover {
-//   box-shadow: 0 0 10px rgba(237, 232, 232, 0.689);
-//   transition: 0.6s ease;
-// }
-
 p {
   color: white;
   font-family: 'Raleway';
@@ -86,12 +81,37 @@ p {
   font-size: 1em;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .card-meetup-info-inner-content h1 {
   text-align: center;
   font-size: 2.5em;
   margin: 0;
+}
+
+.meetup-details {
+  text-align: center;
+}
+
+.share-options {
+  display: flex;
+  justify-content: center;
+}
+
+.social-media {
+  margin-top: 0;
+}
+
+.midl-logo {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  align-items: center;
+}
+
+.centre-point-marker-show {
+  height: 80px;
 }
 
 // WHO IS GOING CARD
