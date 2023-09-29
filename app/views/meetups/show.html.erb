@@ -15,7 +15,7 @@
               <p><%= @centre_address %></p>
               <%# <p>Location: <%= @meetup.location</p> %>
               <!-- icons -->
-              <h4><div style="display:flex;justify-content: center;"><a class="btn btn-primary-view" style="margin: 20px" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">Meetuplink: <%= @meetup.passcode %></a>
+              <h4><div style="display:flex;justify-content: center;"><a class="btn btn-primary-view" style="margin: 20px" data-controller="copy-passcode" data-passcode="<%= @meetup.passcode %>" data-chatroom-path="<%= meetup_chatroom_path(@meetup) %>">meetup link → <%= @meetup.passcode %></a>
               <% @meetup.id %><% @meetup.user_id %></div></h4>
               <div class="d-flex justify-content-center text-center">
             <%= render "meetups/share_passcode" %>
