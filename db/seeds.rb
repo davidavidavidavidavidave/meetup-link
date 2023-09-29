@@ -31,7 +31,7 @@ user_1 = User.create!(
 )
 
 user_2 = User.create!(
-  username: "Kat",
+  username: "cat",
   email: "cat@email.com",
   password: "123456",
   address: "77 Eaton Rise, London W5 2HE"
