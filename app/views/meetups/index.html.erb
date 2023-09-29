@@ -11,7 +11,8 @@
           <!-- Add any other meetup attributes you want to display -->
 
           <!-- Add "View this Meetup" button -->
-          <%= link_to "View this Meetup", meetup_path(meetup), class: "btn btn-primary-confview" %>
+          <div class="d-flex justify-content-center"><%= link_to "View this Meetup", meetup_path(meetup), class: "btn btn-primary-confview" %></div>
+          <br>
             <%= render "meetups/share_passcode" %>
         </div>
       </div>
